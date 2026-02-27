@@ -1,0 +1,152 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function Projects() {
+  return (
+    <div className="w-full relative overflow-hidden flex flex-col items-center pt-32 pb-20">
+      {/* Dynamic Background Blurs */}
+      <div className="fixed top-[-20%] left-[-10%] w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-blue/20 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* HEADER */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="w-full max-w-5xl mx-auto px-6 text-center mb-16"
+      >
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
+          Our <span className="text-brand-gold relative inline-block">Projects<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
+        </h1>
+        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          Discover the commissioned books, historical artwork, and community events that advance our mission to promote the Christian faith.
+        </p>
+      </motion.div>
+
+      {/* PROJECT 1: BOOK */}
+      <section className="w-full max-w-6xl mx-auto px-6 mb-24 relative z-10">
+        <div className="glass-card flex flex-col md:flex-row gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="w-full md:w-1/3 flex justify-center"
+          >
+            <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-black/20 group">
+              <Image 
+                src="/images/Faithful-Saints-of-Christ-Cover-enhanced.png" 
+                alt="Faithful Saints of Christ Book Cover" 
+                width={400} height={600} 
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                <button className="bg-brand-gold text-white px-6 py-2 rounded-full font-bold shadow-lg text-sm hover:scale-105 transition-transform">
+                  Available in Store
+                </button>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="w-full md:w-2/3"
+          >
+            <h3 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-2">Phase 1 Publication</h3>
+            <h2 className="text-3xl font-heading font-extrabold mb-6 text-neutral-900 dark:text-white">
+              Faithful Saints of Christ
+            </h2>
+            <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
+              <p>
+                <strong>Perseverance Under Persecution.</strong> The first book that FCAO commissioned to be published is titled <em>Faithful Saints of Christ</em>. The book was commissioned by FCAO to be written by several authors and scholars, and it was recently completed and published in December 2025. FCAO also commissioned a French artist (Mathieu Nozieres) that has produced an oil painting portraying a &quot;pre-battle scene&quot; from the historical event called the Battle of Avarayr.
+              </p>
+              <p>
+                <em>Faithful Saints of Christ</em> is both a spiritual journey and a powerful historical testimony. It traces the miracles, struggles, and perseverance that shaped Armenian history. Readers will witness the courage of Armenians who defended their Christian faith against oppression—with emphasis on the story of St. Vartan and the Battle of Avarayr: the conflict in which the Armenians decisively confirmed their identity as a Christian people. The narrative continues into modern history, recounting the Armenian Genocide of 1915, the hidden genocide of 1918 in Iran, and the ongoing persecution of Christians worldwide.
+              </p>
+              <p>
+                This book is intended to be a phase 1 project which will hopefully lead into the production of a movie script about the Battle of Avarayr (phase 2) which God willing will ultimately lead into the production of the movie itself (phase 3). All net proceeds from the sale of this book and the sale of the reproduction copies of the original oil painting will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PROJECT 2: OIL PAINTING */}
+      <section className="w-full max-w-7xl mx-auto px-6 mb-24 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-3xl overflow-hidden glass-card p-0"
+        >
+          <div className="relative h-[400px] md:h-[500px] w-full">
+            <Image 
+              src="/images/Battle-of-Avarayr-1000px.png" 
+              alt="Battle of Avarayr Original Oil Painting" 
+              fill
+              className="object-cover" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+              <h3 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-2">Commissioned Artwork</h3>
+              <h2 className="text-3xl md:text-4xl font-heading font-extrabold mb-4 text-white">
+                The Pre-Battle Scene of Avarayr
+              </h2>
+              <p className="text-neutral-200 max-w-3xl leading-relaxed text-sm md:text-base">
+                An original oil painting masterpiece produced by French artist Mathieu Nozieres portraying the legendary historical event. The painting was publicly displayed for the first time at our book signing events. High-quality reproduction copies are available for purchase to support our global mission.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* PROJECT 3: BOOK SIGNING EVENTS */}
+      <section className="w-full max-w-6xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-heading font-extrabold mb-10 text-neutral-900 dark:text-white text-center">
+            Book Signing Events
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="glass-card !p-6">
+              <h4 className="font-bold text-lg mb-2 text-brand-blue dark:text-brand-blue">Armenian Society of Los Angeles</h4>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Saturday, January 24, 2026<br/>3rd Floor Library Room 102<br/>117 South Louise St., Glendale 91205<br/>From 2:00 – 5:00 PM</p>
+            </div>
+            <div className="glass-card !p-6">
+              <h4 className="font-bold text-lg mb-2 text-brand-blue dark:text-brand-blue">Ararat/Eskijian Museum & Church</h4>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Sunday, January 25, 2026<br/>15105 Mission Hills Road, Mission Hills CA 91345<br/>From 4:00 – 6:00 PM</p>
+            </div>
+          </div>
+
+          <div className="glass-card flex flex-col xl:flex-row gap-8 items-center bg-brand-light/50 dark:bg-black/20">
+            <div className="w-full xl:w-1/2">
+              <h3 className="text-xl font-bold mb-4 text-neutral-900 dark:text-white">Meet the Authors, Get Your Book Signed</h3>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-6">
+                All five authors presented segments from the book. The presentation was live-streamed on the Ararat-Eskijian Museum’s YouTube channel. Authors include:
+              </p>
+              <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-3">
+                <li><strong className="text-neutral-900 dark:text-neutral-200">Christopher H. Zakian:</strong> Director of Communications for the Eastern Diocese of the Armenian Church of America</li>
+                <li><strong className="text-neutral-900 dark:text-neutral-200">Dr. Michael Papazian:</strong> Professor of Religion and Philosophy at Berry College</li>
+                <li><strong className="text-neutral-900 dark:text-neutral-200">Dr. Rosemary Hartounian Cohen:</strong> Sociologist with a doctorate degree from the Sorbonne, Paris</li>
+                <li><strong className="text-neutral-900 dark:text-neutral-200">Armen Simonian:</strong> Founder of First Christians Alliance Outreach</li>
+                <li><strong className="text-neutral-900 dark:text-neutral-200">Zorik Pirveysian:</strong> Environmental Engineer / Pastor</li>
+              </ul>
+            </div>
+            <div className="w-full xl:w-1/2 overflow-hidden rounded-xl shadow-lg border border-black/5 dark:border-white/5">
+              <Image 
+                src="/images/Meet-the-Authors.png" 
+                alt="Meet the Authors" 
+                width={800} height={500} 
+                className="object-cover w-full h-auto" 
+              />
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+}

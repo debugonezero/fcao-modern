@@ -1,16 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, Phone, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) return;
+    
+    setStatus('loading');
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (!res.ok) throw new Error("Failed to send");
+      
+      setStatus('success');
+      setFormData({ firstName: '', lastName: '', email: '', message: '' });
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="w-full min-h-screen relative overflow-hidden flex flex-col items-center pt-32 pb-20">
-      {/* Background Blurs */}
       <div className="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="fixed bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-brand-gold/10 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* HEADER */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -27,26 +52,11 @@ export default function Contact() {
       <section className="w-full max-w-6xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-8">
           
-          {/* Contact Info Cards */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             className="w-full lg:w-1/3 space-y-4"
           >
-            <div className="glass-card flex items-start gap-4">
-              <div className="mt-1 p-3 bg-brand-blue/10 rounded-full">
-                <MapPin className="w-6 h-6 text-brand-blue" />
-              </div>
-              <div>
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Mailing Address</h4>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  First Christians Alliance Outreach<br />
-                  P.O. Box 1234<br />
-                  Los Angeles, CA 90001
-                </p>
-              </div>
-            </div>
-
             <div className="glass-card flex items-start gap-4">
               <div className="mt-1 p-3 bg-brand-gold/10 rounded-full">
                 <Mail className="w-6 h-6 text-brand-gold" />
@@ -54,8 +64,7 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Email Us</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  info@firstchristiansalliance.org<br />
-                  support@firstchristiansalliance.org
+                  info@firstchristiansallianceoutreach.org
                 </p>
               </div>
             </div>
@@ -67,14 +76,13 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Phone</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  (555) 123-4567<br />
-                  Mon-Fri, 9am - 5pm PST
+                  (855) 333-3547<br />
+                  Ask for Armen
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -82,31 +90,82 @@ export default function Contact() {
             className="w-full lg:w-2/3 glass-card !p-8 border-t-4 border-t-brand-blue"
           >
             <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Send a Message</h3>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {status === 'success' && (
+                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 p-4 rounded-lg flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <p className="text-sm font-medium">Your message has been sent successfully. We will get back to you soon!</p>
+                </div>
+              )}
+              
+              {status === 'error' && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 p-4 rounded-lg">
+                  <p className="text-sm font-medium">Failed to send message. Please ensure your environment API keys are configured correctly.</p>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">First Name</label>
-                  <input type="text" className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all" placeholder="John" />
+                  <input required
+                    type="text" 
+                    className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                    placeholder="John" 
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                    disabled={status === 'loading'}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Last Name</label>
-                  <input type="text" className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all" placeholder="Doe" />
+                  <input required
+                    type="text" 
+                    className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                    placeholder="Doe" 
+                    value={formData.lastName}
+                    onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                    disabled={status === 'loading'}
+                  />
                 </div>
               </div>
               
               <div>
                 <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Email Address</label>
-                <input type="email" className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all" placeholder="john@example.com" />
+                <input required
+                  type="email" 
+                  className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                  placeholder="john@example.com" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  disabled={status === 'loading'}
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Message</label>
-                <textarea rows={5} className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all resize-none" placeholder="How can we help you?"></textarea>
+                <textarea required
+                  rows={5} 
+                  className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all resize-none disabled:opacity-50" 
+                  placeholder="How can we help you?"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  disabled={status === 'loading'}
+                ></textarea>
               </div>
 
-              <button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold py-4 px-8 rounded-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 w-full md:w-auto shadow-lg shadow-brand-blue/20">
-                <Send className="w-4 h-4" />
-                Send Message
+              <button 
+                type="submit"
+                disabled={status === 'loading'}
+                className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold py-4 px-8 rounded-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 w-full md:w-auto shadow-lg shadow-brand-blue/20 disabled:hover:scale-100 disabled:opacity-70"
+              >
+                {status === 'loading' ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

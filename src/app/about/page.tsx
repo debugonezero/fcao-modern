@@ -118,6 +118,54 @@ export default function About() {
         </div>
       </section>
 
+      {/* OFFICIAL STATEMENTS */}
+      <section className="w-full max-w-6xl mx-auto px-6 mb-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card !p-8 border-t-4 border-t-brand-blue"
+          >
+            <h2 className="text-2xl font-heading font-extrabold mb-6 text-neutral-900 dark:text-white border-b border-neutral-200 dark:border-white/10 pb-4">
+              Mission Statement
+            </h2>
+            <ol className="list-decimal pl-5 space-y-4 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed marker:font-bold marker:text-brand-blue">
+              <li>FCAO will support the production and promotion of inspiring Christian books, movie scripts, and films approved by FCAO which will glorify our Lord Jesus Christ and draw people to Him.</li>
+              <li>FCAO will support any non-profit Armenian and non-Armenian Christian mission-based charitable organization, which has excellent track record and accountability and transparency policies, through its selection process.</li>
+              <li>FCAO will give priority to supporting specific Christian missions and specific causes through Armenian and non-Armenian Christian organizations. Examples for a specific cause would be renovation of a particular church, construction of a community center, or providing financial support for families in a certain poor and deprived village in Armenia, or helping persecuted Christians worldwide. Financial support will be considered for reputable Christian mission organizations that are willing and open to provide their annual budget and financial records, and preferably organizations that have already been vetted by Charity Navigators and have received 3 stars or more.</li>
+              <li>Net proceeds from Christian book or Christian film projects will provide the finances for FCAO’s support of mission organizations.</li>
+              <li>FCAO will not support any political organization, or have any affiliation or involvement with any profit based business entity, or have any affiliation with a non-profit organization that is politically involved.</li>
+              <li>FCAO will be governed by its Board of Directors, which will meet at least 4 times per year to evaluate the status of various projects, discuss new projects and ideas, review its financial records, and to resolve any issues or conflicts for the scope of its tasks.</li>
+              <li>FCAO will conduct its financial business with utmost integrity and transparency and will also use independent auditors to ensure highest financial integrity.</li>
+            </ol>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="glass-card !p-8 border-t-4 border-t-brand-gold"
+          >
+            <h2 className="text-2xl font-heading font-extrabold mb-6 text-neutral-900 dark:text-white border-b border-neutral-200 dark:border-white/10 pb-4">
+              Statement of Faith
+            </h2>
+            <ol className="list-decimal pl-5 space-y-4 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed marker:font-bold marker:text-brand-gold">
+              <li>We believe in one God, Creator of all things, infinitely perfect and eternally existing in three persons: Father, Son and Holy Spirit.</li>
+              <li>We believe the Bible to be the inspired, authoritative Word of God, infallible and inerrant in its original writings. It is the complete revelation of His will for the salvation of men and the divine and final authority for all Christian faith and life.</li>
+              <li>We believe that Jesus Christ is true God and true man, having been conceived of the Holy Spirit and born of the Virgin Mary. We believe in His sinless life, in His miracles, in His vicarious and atoning death through His shed blood, in His bodily resurrection, in His ascension to the right hand of the Father and in His personal return as King of Kings and Lord of Lords.</li>
+              <li>We believe that man was created in the image of God but fell into sin and is therefore lost and out of God’s abundant love. Through regeneration by the Holy Spirit he can obtain salvation and eternal life. This salvation is by grace alone through the shed blood of Jesus Christ, the Son of God.</li>
+              <li>We believe in the present ministry of the Holy Spirit by whose indwelling the Christian is enabled to live a godly life.</li>
+              <li>We believe that Jesus Christ is the Lord and the Head of the Church, and that every local Church has the right under Christ to decide and govern its own affairs.</li>
+              <li>We believe that the true Church is composed of all such persons who through saving faith in Jesus Christ have been regenerated by the Holy Spirit and are united together in the body of Christ of which He is the head.</li>
+            </ol>
+          </motion.div>
+
+        </div>
+      </section>
+
     </div>
   );
 }

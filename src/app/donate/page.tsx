@@ -59,10 +59,10 @@ export default function Donate() {
         <div className="inline-flex items-center justify-center p-3 glass rounded-full mb-6">
           <Heart className="w-8 h-8 text-brand-gold fill-brand-gold/20" />
         </div>
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
           Support Our <span className="text-brand-gold relative inline-block">Mission<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
-        <div className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed flex flex-col gap-4">
+        <div className="text-neutral-600 max-w-2xl mx-auto text-lg leading-relaxed flex flex-col gap-4">
           <p>Donations, large and small, are welcomed and may be made in one sum or on a periodic basis.</p>
           <p>First Christians Alliance Outreach (FCAO) is a registered 501(c)(3) non-profit organization. All donations are tax-deductible.</p>
           <p>All donations will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.</p>
@@ -77,35 +77,35 @@ export default function Donate() {
           className="glass-card !p-8 md:!p-10 border-t-4 border-t-brand-gold shadow-2xl"
         >
           {/* Donation Type Toggle */}
-          <div className="flex bg-neutral-100 dark:bg-white/5 rounded-lg p-1 mb-8">
+          <div className="flex bg-neutral-100 rounded-lg p-1 mb-8">
             <button
               onClick={() => setIsRecurring(false)}
-              className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${!isRecurring ? 'bg-white dark:bg-neutral-800 shadow-sm text-neutral-900 dark:text-white' : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'}`}
+              className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${!isRecurring ? 'bg-white shadow-sm text-neutral-900' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
               One-Time Gift
             </button>
             <button
               onClick={() => setIsRecurring(true)}
-              className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${isRecurring ? 'bg-white dark:bg-neutral-800 shadow-sm text-neutral-900 dark:text-white' : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'}`}
+              className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${isRecurring ? 'bg-white shadow-sm text-neutral-900' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
               Monthly Impact
             </button>
           </div>
 
-          <h3 className="text-lg font-bold mb-4 text-neutral-900 dark:text-white">Select Amount</h3>
+          <h3 className="text-lg font-bold mb-4 text-neutral-900">Select Amount</h3>
           <div className="grid grid-cols-3 gap-3 mb-4">
             {amounts.map((amt) => (
               <button
                 key={amt}
                 onClick={() => setAmount(amt)}
-                className={`py-4 rounded-xl font-bold text-lg border-2 transition-all ${amount === amt ? 'border-brand-gold bg-brand-gold/10 text-brand-gold' : 'border-neutral-200 dark:border-white/10 text-neutral-600 dark:text-neutral-300 hover:border-brand-gold/50'}`}
+                className={`py-4 rounded-xl font-bold text-lg border-2 transition-all ${amount === amt ? 'border-brand-gold bg-brand-gold/10 text-brand-gold' : 'border-neutral-200 text-neutral-600 hover:border-brand-gold/50'}`}
               >
                 ${amt}
               </button>
             ))}
             <button
               onClick={() => setAmount('custom')}
-              className={`py-4 rounded-xl font-bold border-2 transition-all ${amount === 'custom' ? 'border-brand-gold bg-brand-gold/10 text-brand-gold' : 'border-neutral-200 dark:border-white/10 text-neutral-600 dark:text-neutral-300 hover:border-brand-gold/50'}`}
+              className={`py-4 rounded-xl font-bold border-2 transition-all ${amount === 'custom' ? 'border-brand-gold bg-brand-gold/10 text-brand-gold' : 'border-neutral-200 text-neutral-600 hover:border-brand-gold/50'}`}
             >
               Custom
             </button>

@@ -25,26 +25,50 @@ export async function POST(request: Request) {
     };
 
     items.forEach((item: any, index: number) => {
-      // Resolve priceId if it's a placeholder
-      const resolvedPriceId = process.env[item.priceId] || item.priceId;
-      
-      line_items.push({
-        price: resolvedPriceId,
-        quantity: item.quantity,
-      });
+      if (item.isCustomAmount) {
+        // Handle Donations or Custom Amounts using price_data
+        line_items.push({
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: item.name || 'Donation',
+            },
+            unit_amount: (item.amount || 0) * 100, // Convert to cents
+            ...(mode === 'subscription' && {
+              recurring: { interval: 'month' }
+            })
+          },
+          quantity: 1,
+        });
+      } else {
+        // Resolve priceId if it's a placeholder
+        const resolvedPriceId = process.env[item.priceId] || item.priceId;
+        
+        line_items.push({
+          price: resolvedPriceId,
+          quantity: item.quantity || 1,
+        });
+      }
 
       // Add to metadata (Stripe allows 50 keys, we use index prefixed)
-      metadata[`item_${index + 1}_name`] = item.name;
-      metadata[`item_${index + 1}_qty`] = item.quantity.toString();
-      metadata[`item_${index + 1}_sku`] = item.productId.toString();
+      metadata[`item_${index + 1}_name`] = item.name || 'Item';
+      metadata[`item_${index + 1}_qty`] = (item.quantity || 1).toString();
+      metadata[`item_${index + 1}_sku`] = (item.productId || 'N/A').toString();
     });
 
     // Add Shipping as a line item if provided
     let shippingFee = shipping;
 
-    // Server-side fallback: If no shipping was provided by the UI, 
-    // calculate a baseline Standard fee locally to prevent "free shipping" leaks.
-    if (!shippingFee || shippingFee.cost <= 0) {
+    // Check if we have any "shippable" items (non-donations)
+    const hasShippableItems = items.some((item: any) => !item.isCustomAmount);
+
+    // Skip shipping calculation if all items are donations
+    if (!hasShippableItems) {
+      shippingFee = null;
+    } 
+    // Server-side fallback: If shippable items exist but no shipping was provided by the UI, 
+    // calculate a baseline Standard fee locally.
+    else if (!shippingFee || shippingFee.cost <= 0) {
       console.warn("Checkout received without shipping fee. Calculating server-side fallback.");
       try {
         const { calculateSmartRates } = await import('@/lib/shipping');

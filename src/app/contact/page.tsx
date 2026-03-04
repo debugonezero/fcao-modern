@@ -42,10 +42,10 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-4xl mx-auto px-6 text-center mb-16 relative z-10"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
           Get In <span className="text-brand-blue relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-blue/30 rounded-full"/></span>
         </h1>
-        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+        <p className="text-neutral-600 max-w-2xl mx-auto">
           We would love to hear from you. Whether you have questions about our existing projects, want to support our mission, or simply want to connect, please reach out.
         </p>
       </motion.div>
@@ -63,8 +63,8 @@ export default function Contact() {
                 <User className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Contact Person</h4>
-                <p className="text-base text-neutral-900 dark:text-white font-bold">Armen Simonian</p>
+                <h4 className="font-bold text-neutral-900 mb-1">Contact Person</h4>
+                <p className="text-base text-neutral-900 font-bold">Armen Simonian</p>
               </div>
             </div>
 
@@ -73,10 +73,10 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Email Us</h4>
+                <h4 className="font-bold text-neutral-900 mb-1">Email Us</h4>
                 <a 
                   href="mailto:info@Firstchristiansalliance.org" 
-                  className="text-base text-neutral-900 dark:text-white font-bold hover:text-brand-gold transition-colors break-all"
+                  className="text-base text-neutral-900 font-bold hover:text-brand-gold transition-colors break-all"
                 >
                   info@Firstchristiansalliance.org
                 </a>
@@ -88,10 +88,10 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Call Us</h4>
+                <h4 className="font-bold text-neutral-900 mb-1">Call Us</h4>
                 <a 
                   href="tel:8553333547" 
-                  className="text-base text-neutral-900 dark:text-white font-bold hover:text-brand-gold transition-colors"
+                  className="text-base text-neutral-900 font-bold hover:text-brand-gold transition-colors"
                 >
                   855-333-3547
                 </a>
@@ -99,16 +99,16 @@ export default function Contact() {
             </div>
 
             <div className="glass-card p-6 border-l-4 border-l-brand-gold bg-brand-gold/5">
-              <h4 className="font-bold text-neutral-900 dark:text-white mb-2">Response Time</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <h4 className="font-bold text-neutral-900 mb-2">Response Time</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
                 We typically respond to all inquiries within 2 or 3 business days. Thank you for your patience and for supporting our mission.
               </p>
             </div>
 
             <div className="hidden lg:block glass-card p-6 overflow-hidden relative group">
               <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-blue/10 rounded-full blur-2xl group-hover:bg-brand-blue/20 transition-colors" />
-              <h4 className="font-bold text-neutral-900 dark:text-white mb-2 italic">Looking for the Store?</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+              <h4 className="font-bold text-neutral-900 mb-2 italic">Looking for the Store?</h4>
+              <p className="text-sm text-neutral-600 mb-4">
                 All proceeds from our books and artwork directly support the FCAO mission.
               </p>
               <Link 
@@ -126,27 +126,27 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="w-full lg:w-2/3 glass-card !p-8 border-t-4 border-t-brand-blue"
           >
-            <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Send a Message</h3>
+            <h3 className="text-2xl font-bold mb-6 text-neutral-900">Send a Message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               {status === 'success' && (
-                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 p-4 rounded-lg flex items-center gap-3">
+                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-4 rounded-lg flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5" />
                   <p className="text-sm font-medium">Your message has been sent successfully. We will get back to you soon!</p>
                 </div>
               )}
               
               {status === 'error' && (
-                <div className="bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 p-4 rounded-lg">
+                <div className="bg-red-500/10 border border-red-500/20 text-red-600 p-4 rounded-lg">
                   <p className="text-sm font-medium">Failed to send message. Please ensure your environment API keys are configured correctly.</p>
                 </div>
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">First Name</label>
+                  <label className="block text-sm font-bold text-neutral-700 mb-2">First Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
                     placeholder="John" 
                     value={formData.firstName}
                     onChange={(e) => setFormData({...formData, firstName: e.target.value})}
@@ -154,10 +154,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Last Name</label>
+                  <label className="block text-sm font-bold text-neutral-700 mb-2">Last Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
                     placeholder="Doe" 
                     value={formData.lastName}
                     onChange={(e) => setFormData({...formData, lastName: e.target.value})}
@@ -167,10 +167,10 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Email Address</label>
+                <label className="block text-sm font-bold text-neutral-700 mb-2">Email Address</label>
                 <input required
                   type="email" 
-                  className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all disabled:opacity-50" 
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
                   placeholder="john@example.com" 
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -179,10 +179,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-neutral-700 dark:text-neutral-300 mb-2">Message</label>
+                <label className="block text-sm font-bold text-neutral-700 mb-2">Message</label>
                 <textarea required
                   rows={5} 
-                  className="w-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 dark:text-white transition-all resize-none disabled:opacity-50" 
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all resize-none disabled:opacity-50" 
                   placeholder="How can we help you?"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}

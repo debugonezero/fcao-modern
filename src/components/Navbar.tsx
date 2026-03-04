@@ -16,7 +16,7 @@ export const Navbar = () => {
       initial={{ y: -50, opacity: 0 }} 
       animate={{ y: 0, opacity: 1 }} 
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="sticky top-0 left-0 right-0 z-50 w-full bg-white border-b border-black/5 shadow-sm backdrop-blur-md"
+      className="sticky top-0 left-0 right-0 z-50 w-full bg-white/40 backdrop-blur-lg border-b border-white/20 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="hidden md:flex items-center gap-8 text-base font-bold text-neutral-800 uppercase tracking-widest">

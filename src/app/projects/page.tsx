@@ -16,7 +16,7 @@ export default function Projects() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-5xl mx-auto px-6 text-center mb-16"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white text-center">
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 text-center">
           <span className="text-brand-gold relative inline-block">Projects<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
       </motion.div>
@@ -50,10 +50,10 @@ export default function Projects() {
             transition={{ delay: 0.3 }}
             className="w-full md:w-2/3"
           >
-            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900 dark:text-white">
+            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900">
               Faithful Saints of Christ Book
             </h2>
-            <h3 className="text-base font-bold text-brand-blue dark:text-brand-blue-glow tracking-wide mb-6">
+            <h3 className="text-base font-bold text-brand-blue tracking-wide mb-6">
               Perseverance under persecution
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
@@ -105,10 +105,10 @@ export default function Projects() {
             transition={{ delay: 0.3 }}
             className="w-full md:w-2/3"
           >
-            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900 dark:text-white">
+            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900">
               Pre-Battle Scene of Avarayr
             </h2>
-            <h3 className="text-base font-bold text-brand-blue dark:text-brand-blue-glow tracking-wide mb-6">
+            <h3 className="text-base font-bold text-brand-blue tracking-wide mb-6">
               Reproduction Copy of Original Oil Painting
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
@@ -127,35 +127,35 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-heading font-extrabold mb-10 text-neutral-900 dark:text-white text-center">
+          <h2 className="text-3xl font-heading font-extrabold mb-10 text-neutral-900 text-center">
             Book Signing Events
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="glass-card !p-6">
-              <h4 className="font-bold text-lg mb-2 text-brand-blue dark:text-brand-blue">Armenian Society of Los Angeles</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Saturday, January 24, 2026<br/>3rd Floor Library Room 102<br/>117 South Louise St., Glendale 91205<br/>From 2:00 – 5:00 PM</p>
+              <h4 className="font-bold text-lg mb-2 text-brand-blue">Armenian Society of Los Angeles</h4>
+              <p className="text-sm text-neutral-600 mb-4">Saturday, January 24, 2026<br/>3rd Floor Library Room 102<br/>117 South Louise St., Glendale 91205<br/>From 2:00 – 5:00 PM</p>
             </div>
             <div className="glass-card !p-6">
-              <h4 className="font-bold text-lg mb-2 text-brand-blue dark:text-brand-blue">Ararat/Eskijian Museum & Church</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Sunday, January 25, 2026<br/>15105 Mission Hills Road, Mission Hills CA 91345<br/>From 4:00 – 6:00 PM</p>
+              <h4 className="font-bold text-lg mb-2 text-brand-blue">Ararat/Eskijian Museum & Church</h4>
+              <p className="text-sm text-neutral-600 mb-4">Sunday, January 25, 2026<br/>15105 Mission Hills Road, Mission Hills CA 91345<br/>From 4:00 – 6:00 PM</p>
             </div>
           </div>
 
-          <div className="glass-card flex flex-col gap-8 bg-brand-light/50 dark:bg-black/20">
+          <div className="glass-card flex flex-col gap-8 bg-brand-light/50">
             <div className="w-full">
-              <h3 className="text-xl font-bold mb-4 text-neutral-900 dark:text-white">Meet the Authors, Get Your Book Signed</h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-6">
+              <h3 className="text-xl font-bold mb-4 text-neutral-900">Meet the Authors, Get Your Book Signed</h3>
+              <p className="text-sm text-neutral-600 mb-6">
                 All five authors presented segments from the book. The presentation was live-streamed and made available a few days after the event on the Ararat-Eskijian Museum’s YouTube channel: <a href="https://www.youtube.com/@AraratEskijianMuseum" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline font-bold">youtube.com/@AraratEskijianMuseum</a>
               </p>
-              <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-3">
-                <li><strong className="text-neutral-900 dark:text-neutral-200">Christopher H. Zakian:</strong> Director of Communications for the Eastern Diocese of the Armenian Church of America</li>
-                <li><strong className="text-neutral-900 dark:text-neutral-200">Dr. Michael Papazian:</strong> Professor of Religion and Philosophy at Berry College</li>
-                <li><strong className="text-neutral-900 dark:text-neutral-200">Dr. Rosemary Hartounian Cohen:</strong> Sociologist with a doctorate degree from the Sorbonne, Paris</li>
-                <li><strong className="text-neutral-900 dark:text-neutral-200">Armen Simonian:</strong> Founder of First Christians Alliance Outreach</li>
-                <li><strong className="text-neutral-900 dark:text-neutral-200">Zorik Pirveysian:</strong> Environmental Engineer / Pastor</li>
+              <ul className="text-sm text-neutral-600 space-y-3">
+                <li><strong className="text-neutral-900">Christopher H. Zakian:</strong> Director of Communications for the Eastern Diocese of the Armenian Church of America</li>
+                <li><strong className="text-neutral-900">Dr. Michael Papazian:</strong> Professor of Religion and Philosophy at Berry College</li>
+                <li><strong className="text-neutral-900">Dr. Rosemary Hartounian Cohen:</strong> Sociologist with a doctorate degree from the Sorbonne, Paris</li>
+                <li><strong className="text-neutral-900">Armen Simonian:</strong> Founder of First Christians Alliance Outreach</li>
+                <li><strong className="text-neutral-900">Zorik Pirveysian:</strong> Environmental Engineer / Pastor</li>
               </ul>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-6 pt-6 border-t border-black/10 dark:border-white/10">
+              <p className="text-sm text-neutral-600 mt-6 pt-6 border-t border-black/10">
                 The Pre-Battle Scene of Avarayr’s original oil painting masterpiece will be displayed to the public for the first time at each of these events. The reproduction copies can be purchased at these events or from the FCAO&apos;s website.
               </p>
             </div>

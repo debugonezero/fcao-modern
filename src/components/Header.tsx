@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="w-full h-[200px] md:h-[300px] relative flex items-center justify-center overflow-hidden">
+    <header className="w-full h-[150px] md:h-[220px] relative flex items-center justify-center overflow-hidden">
       {/* Banner Background */}
       <div className="absolute inset-0 z-0">
         {/* Mobile Banner */}
@@ -41,17 +41,6 @@ export const Header = () => {
         </div>
         <div className="absolute inset-0 bg-brand-dark/20" />
       </div>
-
-      {/* Logo Container */}
-      <Link href="/" className="relative z-10 transition-transform duration-500 hover:scale-105">
-        <Image 
-          src="/images/First-Christians-logo-header.png" 
-          alt="FCAO Logo" 
-          width={320} height={109} 
-          className="object-contain"
-          priority
-        />
-      </Link>
     </header>
   );
 };

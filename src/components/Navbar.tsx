@@ -18,8 +18,22 @@ export const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="sticky top-0 left-0 right-0 z-50 w-full bg-white/40 backdrop-blur-lg border-b border-white/20 shadow-sm"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="hidden md:flex items-center gap-8 text-base font-bold text-neutral-800 uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
+          <Link href="/" className="transition-transform hover:scale-105">
+            <Image 
+              src="/images/First-Christians-logo-header.png" 
+              alt="FCAO Logo" 
+              width={180} height={61} 
+              className="object-contain"
+              priority
+            />
+          </Link>
+        </div>
+
+        {/* Center: Navigation */}
+        <div className="hidden md:flex items-center gap-8 text-sm lg:text-base font-bold text-neutral-800 uppercase tracking-widest">
           <div className="relative group">
             <Link href="/about" className="hover:text-brand-gold transition-colors flex items-center gap-1 py-4">
               About
@@ -37,18 +51,18 @@ export const Navbar = () => {
           </div>
           <Link href="/projects" className="hover:text-brand-gold transition-colors">Projects</Link>
           <Link href="/store" className="hover:text-brand-gold transition-colors">Store</Link>
-          <Link href="/cart" className="hover:text-brand-gold transition-colors">Cart</Link>
           <Link href="/contact" className="hover:text-brand-gold transition-colors">Contact</Link>
         </div>
 
-        <div className="flex items-center gap-6">
+        {/* Right: Actions */}
+        <div className="flex-1 flex items-center justify-end gap-6">
           <Link href="/cart" className="p-2 text-neutral-600 hover:text-brand-gold transition-colors relative">
             <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
             <span className="absolute -top-1 -right-1 bg-brand-gold text-white text-[10px] md:text-xs w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center font-bold">
               {totalItems}
             </span>
           </Link>
-          <Link href="/donate" className="bg-brand-gold text-white font-bold px-8 py-2 rounded-full shadow-lg shadow-brand-gold/20 border border-white/10 hover:bg-brand-gold-glow transition-all duration-300 text-sm tracking-widest uppercase">
+          <Link href="/donate" className="bg-brand-gold text-white font-bold px-8 py-2 rounded-full shadow-lg shadow-brand-gold/20 border border-white/10 hover:bg-brand-gold-glow transition-all duration-300 text-xs lg:text-sm tracking-widest uppercase">
             Donate
           </Link>
         </div>

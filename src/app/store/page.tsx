@@ -91,15 +91,34 @@ export default function Shop() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col items-center text-center">
-                  <div className="flex justify-center items-center mb-4">
-                    <span className="font-bold text-2xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
+                  <div className="flex flex-col items-center mb-6">
+                    {hasVariations ? (
+                      <div className="space-y-2">
+                        {product.variations!.map((variation: any, vIndex: number) => (
+                          <button
+                            key={vIndex}
+                            onClick={() => handleVariationChange(product.id, vIndex)}
+                            className={`flex items-center justify-between gap-4 px-4 py-2 rounded-lg border transition-all w-64 ${
+                              selectedVariationIndex === vIndex 
+                                ? "border-brand-gold bg-brand-gold/10 text-neutral-900 dark:text-white" 
+                                : "border-neutral-200 dark:border-white/10 text-neutral-500 hover:border-brand-gold/30"
+                            }`}
+                          >
+                            <span className="text-sm font-medium">{variation.name}</span>
+                            <span className="font-bold">{variation.price}</span>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="font-bold text-2xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
+                    )}
                   </div>
                   <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
                   <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-center">
                     <div className="space-y-4">
                       <p className="font-bold text-brand-blue dark:text-brand-blue-glow tracking-wider text-xs">{product.shortDescription}</p>
                       {product.authors && (
-                        <ul className="list-disc pl-5 space-y-1 text-sm">
+                        <ul className="list-disc pl-5 space-y-1 text-sm text-left inline-block">
                           {product.authors.map((author, i) => (
                             <li key={i}>{author}</li>
                           ))}
@@ -111,22 +130,7 @@ export default function Shop() {
                     </div>
                   </div>
                   
-                  {hasVariations && (
-                    <div className="mb-6">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Select Size</label>
-                      <select 
-                        className="w-full bg-neutral-100 dark:bg-black/40 border border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 cursor-pointer appearance-none transition-all font-medium"
-                        value={selectedVariationIndex}
-                        onChange={(e) => handleVariationChange(product.id, parseInt(e.target.value))}
-                      >
-                        {product.variations!.map((variation, vIndex) => (
-                          <option key={vIndex} value={vIndex}>{variation.name}</option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
-
-                  <div className="mb-4">
+                  <div className="mb-4 flex flex-col items-center">
                     <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Qty</label>
                     <input
                       type="number"

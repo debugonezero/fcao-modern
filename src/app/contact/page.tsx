@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -69,6 +69,21 @@ export default function Contact() {
                   className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-brand-gold transition-colors break-all"
                 >
                   info@firstchristiansallianceoutreach.org
+                </a>
+              </div>
+            </div>
+
+            <div className="glass-card flex items-start gap-4 hover:border-brand-gold/50 transition-colors group">
+              <div className="mt-1 p-3 bg-brand-gold/10 rounded-full group-hover:bg-brand-gold/20 transition-colors">
+                <Phone className="w-6 h-6 text-brand-gold" />
+              </div>
+              <div>
+                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Call Us</h4>
+                <a 
+                  href="tel:8183884468" 
+                  className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-brand-gold transition-colors"
+                >
+                  818-388-4468
                 </a>
               </div>
             </div>

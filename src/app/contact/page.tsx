@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Mail, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', message: '' });
@@ -55,31 +56,42 @@ export default function Contact() {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="w-full lg:w-1/3 space-y-4"
+            className="w-full lg:w-1/3 space-y-6"
           >
-            <div className="glass-card flex items-start gap-4">
-              <div className="mt-1 p-3 bg-brand-gold/10 rounded-full">
+            <div className="glass-card flex items-start gap-4 hover:border-brand-gold/50 transition-colors group">
+              <div className="mt-1 p-3 bg-brand-gold/10 rounded-full group-hover:bg-brand-gold/20 transition-colors">
                 <Mail className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Email Us</h4>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <a 
+                  href="mailto:info@firstchristiansallianceoutreach.org" 
+                  className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-brand-gold transition-colors break-all"
+                >
                   info@firstchristiansallianceoutreach.org
-                </p>
+                </a>
               </div>
             </div>
 
-            <div className="glass-card flex items-start gap-4">
-              <div className="mt-1 p-3 bg-emerald-500/10 rounded-full">
-                <Phone className="w-6 h-6 text-emerald-500" />
-              </div>
-              <div>
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Phone</h4>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  (855) 333-3547<br />
-                  Ask for Armen
-                </p>
-              </div>
+            <div className="glass-card p-6 border-l-4 border-l-brand-gold bg-brand-gold/5">
+              <h4 className="font-bold text-neutral-900 dark:text-white mb-2">Response Time</h4>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                We typically respond to all inquiries within 24-48 hours. Thank you for your patience and for supporting our mission.
+              </p>
+            </div>
+
+            <div className="hidden lg:block glass-card p-6 overflow-hidden relative group">
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-blue/10 rounded-full blur-2xl group-hover:bg-brand-blue/20 transition-colors" />
+              <h4 className="font-bold text-neutral-900 dark:text-white mb-2 italic">Looking for the Store?</h4>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                All proceeds from our books and artwork directly support the FCAO mission.
+              </p>
+              <Link 
+                href="/shop" 
+                className="text-sm font-bold text-brand-blue hover:text-brand-blue-glow transition-colors"
+              >
+                Go to Store →
+              </Link>
             </div>
           </motion.div>
 
@@ -156,7 +168,7 @@ export default function Contact() {
               <button 
                 type="submit"
                 disabled={status === 'loading'}
-                className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold py-4 px-8 rounded-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 w-full md:w-auto shadow-lg shadow-brand-blue/20 disabled:hover:scale-100 disabled:opacity-70"
+                className="bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 w-full md:w-auto tracking-wide disabled:hover:-translate-y-0 disabled:opacity-70"
               >
                 {status === 'loading' ? (
                   <Loader2 className="w-5 h-5 animate-spin" />

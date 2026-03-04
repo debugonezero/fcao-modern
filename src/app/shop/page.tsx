@@ -5,68 +5,53 @@ import Image from "next/image";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 
+import { products } from "@/lib/products";
+import { useCart } from "@/context/CartContext";
+import { Check } from "lucide-react";
+
 export default function Shop() {
   const [selectedOptions, setSelectedOptions] = useState<Record<number, number>>({});
+  const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [isProcessing, setIsProcessing] = useState<number | null>(null);
 
-  const products = [
-    {
-      id: 1,
-      name: "Faithful Saints of Christ",
-      category: "Books",
-      price: "$24.99",
-      image: "/images/Faithful-Saints-of-Christ-Cover-enhanced.png",
-      description: "A spiritual journey and a powerful historical testimony of early Armenian Christians.",
-      stripePriceId: process.env.NEXT_PUBLIC_STRIPE_BOOK_PRICE_ID,
-      variations: null
-    },
-    {
-      id: 2,
-      name: "Battle of Avarayr Replication",
-      category: "Artwork",
-      price: null,
-      image: "/images/Battle-of-Avarayr-1000px.png",
-      description: "High-quality reproduction print of the commissioned oil painting by Mathieu Nozieres.",
-      stripePriceId: null, // Driven by variations
-      variations: [
-        { name: "18\" x 24\" Standard Poster", price: "$45.00", stripePriceId: process.env.NEXT_PUBLIC_STRIPE_POSTER_STANDARD_PRICE_ID },
-        { name: "24\" x 36\" Large Canvas", price: "$150.00", stripePriceId: process.env.NEXT_PUBLIC_STRIPE_POSTER_LARGE_PRICE_ID }
-      ]
-    }
-  ];
+  const { addToCart } = useCart();
+  const [addedItems, setAddedItems] = useState<Record<number, boolean>>({});
 
   const handleVariationChange = (productId: number, index: number) => {
     setSelectedOptions((prev) => ({ ...prev, [productId]: index }));
   };
 
-  const handleCheckout = async (product: { id: number; stripePriceId: string | null | undefined; variations: { stripePriceId: string | null | undefined }[] | null }, variationIndex: number) => {
+  const handleAddToCart = (product: any, variationIndex: number) => {
     setIsProcessing(product.id);
     
-    // Determine the correct Stripe Price ID
-    const priceId = product.variations ? product.variations[variationIndex].stripePriceId : product.stripePriceId;
-    
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId, mode: 'payment', quantity: 1 })
-      });
-      
-      const data = await res.json();
-      
-      if (data.url) {
-        window.location.assign(data.url); // Trigger Stripe Redirect
-      } else if (data.error && data.error.includes("missing")) {
-        alert("SIMULATION: In production, you would be redirected to purchase this item via Stripe.");
-        setIsProcessing(null);
-      } else {
-        alert("Error: " + data.error);
-        setIsProcessing(null);
-      }
-    } catch (err) {
-      console.error("Checkout issue:", err);
+    // Determine the correct Stripe Price ID and name
+    const selectedVariation = product.variations ? product.variations[variationIndex] : null;
+    const priceId = selectedVariation ? selectedVariation.stripePriceId : product.stripePriceId;
+    const price = selectedVariation ? selectedVariation.price : product.price;
+    const name = selectedVariation ? `${product.name} - ${selectedVariation.name}` : product.name;
+    const id = selectedVariation ? `${product.id}-${selectedVariation.id}` : product.id.toString();
+
+    const quantity = quantities[product.id] ?? 1;
+
+    addToCart({
+      id,
+      productId: product.id,
+      name,
+      price,
+      image: product.image,
+      quantity,
+      variationName: selectedVariation?.name,
+      stripePriceId: priceId,
+      category: product.category,
+      shipping: product.shipping || selectedVariation?.shipping
+    });
+
+    // Visual feedback
+    setAddedItems(prev => ({ ...prev, [product.id]: true }));
+    setTimeout(() => {
+      setAddedItems(prev => ({ ...prev, [product.id]: false }));
       setIsProcessing(null);
-    }
+    }, 1000);
   };
 
   return (
@@ -106,12 +91,25 @@ export default function Shop() {
                   />
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">{product.category}</span>
+                  <div className="flex justify-end items-start mb-2">
                     <span className="font-bold text-xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
                   </div>
                   <h3 className="text-xl font-heading font-bold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1">{product.description}</p>
+                  <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-left">
+                    <div className="space-y-4">
+                      <p className="font-bold text-brand-gold uppercase">{product.shortDescription}</p>
+                      {product.authors && (
+                        <ul className="list-disc pl-5 space-y-1 text-sm">
+                          {product.authors.map((author, i) => (
+                            <li key={i}>{author}</li>
+                          ))}
+                        </ul>
+                      )}
+                      <p className="line-clamp-6 hover:line-clamp-none transition-all cursor-pointer">
+                        {product.longDescription}
+                      </p>
+                    </div>
+                  </div>
                   
                   {hasVariations && (
                     <div className="mb-6">
@@ -128,12 +126,32 @@ export default function Shop() {
                     </div>
                   )}
 
+                  <div className="mb-4">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Qty</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={99}
+                      value={quantities[product.id] ?? 1}
+                      onChange={(e) => setQuantities((prev) => ({ ...prev, [product.id]: Math.max(1, parseInt(e.target.value) || 1) }))}
+                      className="w-24 bg-neutral-100 dark:bg-black/40 border border-neutral-200 dark:border-white/10 text-neutral-900 dark:text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 transition-all text-center font-medium"
+                    />
+                  </div>
+
                   <button 
-                    onClick={() => handleCheckout(product, selectedVariationIndex)}
+                    onClick={() => handleAddToCart(product, selectedVariationIndex)}
                     disabled={isProcessing === product.id}
-                    className="w-full bg-neutral-900 hover:bg-black dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-black font-bold py-4 rounded-xl transition-all hover:scale-[1.02] shadow-xl flex justify-center items-center gap-2 disabled:scale-100 disabled:opacity-80"
+                    className={`w-full font-bold py-4 rounded-xl shadow-xl border border-white/10 active:scale-95 transition-all duration-300 flex justify-center items-center gap-2 disabled:scale-100 disabled:opacity-80 tracking-wide ${
+                      addedItems[product.id] 
+                        ? "bg-green-500 text-white shadow-green-500/20" 
+                        : "bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white shadow-brand-gold/20 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1"
+                    }`}
                   >
-                    {isProcessing === product.id ? <Loader2 className="w-5 h-5 animate-spin" /> : "Buy Now"}
+                    {isProcessing === product.id ? (
+                      addedItems[product.id] ? <Check className="w-5 h-5" /> : <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : (
+                      "Add to Cart"
+                    )}
                   </button>
                 </div>
               </motion.div>

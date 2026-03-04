@@ -35,13 +35,13 @@ export default function Projects() {
           >
             <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-black/20 group">
               <Image 
-                src="/images/Faithful-Saints-of-Christ-Cover-enhanced.png" 
+                src="/images/Faithful-Saints-of-Christ-Book-Cover.png" 
                 alt="Faithful Saints of Christ Book Cover" 
                 width={400} height={600} 
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                <button className="bg-brand-gold text-white px-6 py-2 rounded-full font-bold shadow-lg text-sm hover:scale-105 transition-transform">
+                <button className="bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white px-6 py-2 rounded-full font-bold shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 text-sm tracking-wide">
                   Available in Store
                 </button>
               </div>
@@ -53,7 +53,6 @@ export default function Projects() {
             transition={{ delay: 0.3 }}
             className="w-full md:w-2/3"
           >
-            <h3 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-2">Phase 1 Publication</h3>
             <h2 className="text-3xl font-heading font-extrabold mb-6 text-neutral-900 dark:text-white">
               Faithful Saints of Christ
             </h2>
@@ -65,7 +64,13 @@ export default function Projects() {
                 <em>Faithful Saints of Christ</em> is both a spiritual journey and a powerful historical testimony. It traces the miracles, struggles, and perseverance that shaped Armenian history. Readers will witness the courage of Armenians who defended their Christian faith against oppression—with emphasis on the story of St. Vartan and the Battle of Avarayr: the conflict in which the Armenians decisively confirmed their identity as a Christian people. The narrative continues into modern history, recounting the Armenian Genocide of 1915, the hidden genocide of 1918 in Iran, and the ongoing persecution of Christians worldwide.
               </p>
               <p>
-                This book is intended to be a phase 1 project which will hopefully lead into the production of a movie script about the Battle of Avarayr (phase 2) which God willing will ultimately lead into the production of the movie itself (phase 3). All net proceeds from the sale of this book and the sale of the reproduction copies of the original oil painting will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.
+                Faithful Saints of Christ honors the saints of yesterday who remained steadfast under persecution, while encouraging believers of today to stay faithful to Christ against the obstacles of the present world.
+              </p>
+              <p>
+                This book is intended to be a <strong>Phase 1 project</strong> which will hopefully lead into the production of a movie script about the Battle of Avarayr (<strong>Phase 2</strong>) which God willing will ultimately lead into the production of the movie itself (<strong>Phase 3</strong>).
+              </p>
+              <p>
+                All net proceeds from the sale of this book and the sale of the reproduction copies of the original oil painting will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.
               </p>
             </div>
           </motion.div>
@@ -122,11 +127,11 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="glass-card flex flex-col xl:flex-row gap-8 items-center bg-brand-light/50 dark:bg-black/20">
-            <div className="w-full xl:w-1/2">
+          <div className="glass-card flex flex-col gap-8 bg-brand-light/50 dark:bg-black/20">
+            <div className="w-full">
               <h3 className="text-xl font-bold mb-4 text-neutral-900 dark:text-white">Meet the Authors, Get Your Book Signed</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-6">
-                All five authors presented segments from the book. The presentation was live-streamed on the Ararat-Eskijian Museum’s YouTube channel. Authors include:
+                All five authors presented segments from the book. The presentation was live-streamed and made available a few days after the event on the Ararat-Eskijian Museum’s YouTube channel: <a href="https://www.youtube.com/@AraratEskijianMuseum" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline font-bold">youtube.com/@AraratEskijianMuseum</a>
               </p>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-3">
                 <li><strong className="text-neutral-900 dark:text-neutral-200">Christopher H. Zakian:</strong> Director of Communications for the Eastern Diocese of the Armenian Church of America</li>
@@ -135,14 +140,9 @@ export default function Projects() {
                 <li><strong className="text-neutral-900 dark:text-neutral-200">Armen Simonian:</strong> Founder of First Christians Alliance Outreach</li>
                 <li><strong className="text-neutral-900 dark:text-neutral-200">Zorik Pirveysian:</strong> Environmental Engineer / Pastor</li>
               </ul>
-            </div>
-            <div className="w-full xl:w-1/2 overflow-hidden rounded-xl shadow-lg border border-black/5 dark:border-white/5">
-              <Image 
-                src="/images/Meet-the-Authors.png" 
-                alt="Meet the Authors" 
-                width={800} height={500} 
-                className="object-cover w-full h-auto" 
-              />
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-6 pt-6 border-t border-black/10 dark:border-white/10">
+                The Pre-Battle Scene of Avarayr’s original oil painting masterpiece will be displayed to the public for the first time at each of these events. The reproduction copies can be purchased at these events or from the FCAO&apos;s website.
+              </p>
             </div>
           </div>
         </motion.div>

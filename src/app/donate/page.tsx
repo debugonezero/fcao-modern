@@ -18,8 +18,13 @@ export default function Donate() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          isCustomAmount: true,
-          amount: amount === 'custom' ? null : amount, // If custom UI were built, we'd pass the custom number here
+          items: [
+            {
+              isCustomAmount: true,
+              amount: amount === 'custom' ? null : amount,
+              name: 'FCAO Donation'
+            }
+          ],
           mode: isRecurring ? 'subscription' : 'payment'
         })
       });
@@ -57,9 +62,11 @@ export default function Donate() {
         <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
           Support Our <span className="text-brand-gold relative inline-block">Mission<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
-        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
-          Your generosity enables us to produce inspiring Christian media, support vital global missions, and care for persecuted communities worldwide.
-        </p>
+        <div className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed flex flex-col gap-4">
+          <p>Donations, large and small, are welcomed and may be made in one sum or on a periodic basis.</p>
+          <p>First Christians Alliance Outreach (FCAO) is a registered 501(c)(3) non-profit organization. All donations are tax-deductible.</p>
+          <p>All donations will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.</p>
+        </div>
       </motion.div>
 
       <section className="w-full max-w-2xl mx-auto px-6 relative z-10">
@@ -107,7 +114,7 @@ export default function Donate() {
           <button 
             onClick={handleDonate}
             disabled={isProcessing}
-            className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white font-bold py-5 rounded-xl text-lg mt-6 shadow-xl shadow-brand-gold/20 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white font-bold py-5 rounded-xl text-lg mt-6 shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 tracking-wide"
           >
             {isProcessing ? <Loader2 className="w-6 h-6 animate-spin" /> : `Give ${amount === 'custom' ? 'Any Amount' : '$' + amount}`}
           </button>

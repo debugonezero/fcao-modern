@@ -1,0 +1,56 @@
+
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.join(process.cwd(), '.env') });
+
+const apiKey = process.env.SHIPSTATION_API_KEY;
+const apiSecret = process.env.SHIPSTATION_API_SECRET;
+
+if (!apiKey) {
+  console.error("SHIPSTATION_API_KEY not found in .env");
+  process.exit(1);
+}
+
+async function runTests() {
+  const tests = [
+    { name: "V2 with API-Key Header", url: 'https://ssapi.shipstation.com/v2/rates', headers: { 'API-Key': apiKey } },
+    { name: "V2 with Basic Auth (Key:Secret)", url: 'https://ssapi.shipstation.com/v2/rates', headers: { 'Authorization': `Basic ${Buffer.from(`${apiKey}:${apiSecret}`).toString('base64')}` } },
+    { name: "V1 with Basic Auth (Key:Secret)", url: 'https://ssapi.shipstation.com/rates', headers: { 'Authorization': `Basic ${Buffer.from(`${apiKey}:${apiSecret}`).toString('base64')}` } },
+    { name: "V2 with Bearer Token", url: 'https://ssapi.shipstation.com/v2/rates', headers: { 'Authorization': `Bearer ${apiKey}` } }
+  ];
+
+  for (const test of tests) {
+    console.log(`\n--- Testing: ${test.name} ---`);
+    try {
+      const response = await fetch(test.url, {
+        method: 'POST',
+        headers: { ...test.headers, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          carrierCode: "stamps_com",
+          fromPostalCode: "91205",
+          toState: "CA",
+          toCountry: "US",
+          toPostalCode: "90210",
+          toCity: "Beverly Hills",
+          weight: { value: 2, units: "pounds" },
+          dimensions: { units: "inches", length: 12, width: 9, height: 3 },
+          confirmation: "delivery", residential: true
+        })
+      });
+
+      console.log(`Status: ${response.status} ${response.statusText}`);
+      if (response.ok) {
+        console.log("SUCCESS!");
+        process.exit(0);
+      } else {
+        const text = await response.text();
+        console.log(`Body: ${text.substring(0, 100)}...`);
+      }
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  }
+}
+
+runTests();

@@ -14,7 +14,8 @@ export function Footer() {
           className="object-contain transition-all duration-300 dark:invert-0 dark:hue-rotate-0 invert hue-rotate-180 opacity-80 hover:opacity-100 transition-opacity"
         />
         <p className="text-neutral-500 text-sm max-w-md font-serif">The modernized, high-performance platform for extending global outreach and community support.</p>
-        <p className="text-neutral-500 text-sm mt-4 font-serif">Phone: <a href="tel:8183884468" className="hover:text-brand-gold transition-colors">818-388-4468</a></p>
+        <p className="text-neutral-500 text-sm mt-4 font-serif">Contact: <strong>Armen Simonian</strong></p>
+        <p className="text-neutral-500 text-sm font-serif">Phone: <a href="tel:8183884468" className="hover:text-brand-gold transition-colors">818-388-4468</a></p>
         
         <div className="flex gap-6 mt-8">
           {/* Footer links */}

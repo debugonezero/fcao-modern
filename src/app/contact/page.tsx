@@ -63,6 +63,8 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
+                <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Contact Person</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 font-medium mb-2">Armen Simonian</p>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Email Us</h4>
                 <a 
                   href="mailto:info@firstchristiansallianceoutreach.org" 

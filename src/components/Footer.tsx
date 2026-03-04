@@ -15,7 +15,7 @@ export function Footer() {
         />
         <div className="flex gap-6 mt-8">
           {/* Footer links */}
-          {['About', 'Projects', 'Store', 'Contact', 'Donate', 'Privacy Policy'].map((link) => (
+          {['About', 'Projects', 'Store', 'Contact', 'Donate'].map((link) => (
             <Link key={link} href={link === 'About' ? '/about' : `/${link.toLowerCase().replace(' ', '-')}`} className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-brand-gold dark:hover:text-brand-gold-glow uppercase tracking-wider transition-colors">
               {link}
             </Link>

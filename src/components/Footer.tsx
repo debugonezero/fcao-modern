@@ -10,7 +10,7 @@ export function Footer() {
         <Image 
           src="/images/First-Christians-logo-header.png" 
           alt="FCAO Logo" 
-          width={240} height={82} 
+          width={320} height={109} 
           className="object-contain transition-all duration-300 opacity-100"
         />
         <div className="flex gap-6 mt-8">

@@ -18,15 +18,26 @@ export const Header = () => {
             priority
           />
         </div>
-        {/* Desktop Banner - Using object-fit: contain/cover with better scaling or a dedicated desktop image */}
-        <div className="hidden md:block absolute inset-0">
-          <Image
-            src="/images/banner.jpg" // User requested two images, but I only see one. I will use this as a placeholder for the desktop version.
-            alt="FCAO Banner Desktop"
-            fill
-            className="object-cover opacity-90 scale-105" // Slight scale to fill space better without extreme stretching
-            priority
-          />
+        {/* Desktop Banner - Using two images side-by-side (2x1) to prevent pixelation */}
+        <div className="hidden md:flex absolute inset-0 w-full h-full">
+          <div className="relative w-1/2 h-full">
+            <Image
+              src="/images/banner.jpg"
+              alt="FCAO Banner Left"
+              fill
+              className="object-cover opacity-90"
+              priority
+            />
+          </div>
+          <div className="relative w-1/2 h-full">
+            <Image
+              src="/images/banner.jpg"
+              alt="FCAO Banner Right"
+              fill
+              className="object-cover opacity-90"
+              priority
+            />
+          </div>
         </div>
         <div className="absolute inset-0 bg-brand-dark/20 dark:bg-black/40" />
       </div>

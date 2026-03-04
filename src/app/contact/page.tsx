@@ -42,7 +42,7 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-4xl mx-auto px-6 text-center mb-16 relative z-10"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-4 text-neutral-900">
           Get In <span className="text-brand-blue relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-blue/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 max-w-2xl mx-auto">
@@ -126,7 +126,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="w-full lg:w-2/3 glass-card !p-8 border-t-4 border-t-brand-blue"
           >
-            <h3 className="text-2xl font-bold mb-6 text-neutral-900">Send a Message</h3>
+            <h3 className="text-2xl font-bold mb-6 text-neutral-900 font-serif">Send a Message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               {status === 'success' && (
                 <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-4 rounded-lg flex items-center gap-3">
@@ -143,22 +143,22 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-bold text-neutral-700 mb-2">First Name</label>
+                  <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">First Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
-                    placeholder="John" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                    placeholder="" 
                     value={formData.firstName}
                     onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                     disabled={status === 'loading'}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-neutral-700 mb-2">Last Name</label>
+                  <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Last Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
-                    placeholder="Doe" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                    placeholder="" 
                     value={formData.lastName}
                     onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                     disabled={status === 'loading'}
@@ -167,11 +167,11 @@ export default function Contact() {
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-neutral-700 mb-2">Email Address</label>
+                <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Email Address</label>
                 <input required
                   type="email" 
-                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50" 
-                  placeholder="john@example.com" 
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                  placeholder="" 
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   disabled={status === 'loading'}
@@ -179,11 +179,11 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-neutral-700 mb-2">Message</label>
+                <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Message</label>
                 <textarea required
                   rows={5} 
-                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all resize-none disabled:opacity-50" 
-                  placeholder="How can we help you?"
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all resize-none disabled:opacity-50 font-serif" 
+                  placeholder="Your Message..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   disabled={status === 'loading'}

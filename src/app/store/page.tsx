@@ -92,11 +92,17 @@ export default function Shop() {
                 </div>
                 <div className="flex-1 flex flex-col items-center text-center">
                   <div className="flex flex-col items-center mb-6">
-                    <span className="font-bold text-2xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
-                    {hasVariations && (
-                      <span className="text-sm font-bold text-brand-blue dark:text-brand-blue-glow mt-1">
-                        {product.variations![selectedVariationIndex].name}
-                      </span>
+                    {hasVariations ? (
+                      <div className="flex flex-col items-center gap-2">
+                        {product.variations!.map((variation: any, vIndex: number) => (
+                          <div key={vIndex} className={`flex items-center gap-2 transition-all ${selectedVariationIndex === vIndex ? "opacity-100 scale-105" : "opacity-40"}`}>
+                            <span className="font-bold text-xl text-neutral-900 dark:text-white">{variation.price}</span>
+                            <span className="text-sm text-neutral-500 dark:text-neutral-400">({variation.name})</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="font-bold text-2xl text-neutral-900 dark:text-white transition-all">{product.price}</span>
                     )}
                   </div>
                   <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>

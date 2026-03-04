@@ -19,9 +19,6 @@ export default function Projects() {
         <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
           Our <span className="text-brand-gold relative inline-block">Projects<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
-        <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Discover the commissioned books, historical artwork, and community events that advance our mission to promote the Christian faith.
-        </p>
       </motion.div>
 
       {/* PROJECT 1: BOOK */}

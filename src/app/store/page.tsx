@@ -93,11 +93,11 @@ export default function Shop() {
                 <div className="flex-1 flex flex-col items-center text-center">
                   <div className="flex flex-col items-center mb-6">
                     {hasVariations ? (
-                      <div className="flex flex-col items-center gap-2">
+                      <div className="flex flex-col items-center gap-3">
                         {product.variations!.map((variation: any, vIndex: number) => (
-                          <div key={vIndex} className={`flex items-center gap-2 transition-all ${selectedVariationIndex === vIndex ? "opacity-100 scale-105" : "opacity-40"}`}>
-                            <span className="font-bold text-xl text-neutral-900 dark:text-white">{variation.price}</span>
-                            <span className="text-sm text-neutral-500 dark:text-neutral-400">({variation.name})</span>
+                          <div key={vIndex} className="flex flex-col items-center transition-all">
+                            <span className="font-bold text-2xl text-neutral-900 dark:text-white">{variation.price}</span>
+                            <span className="text-xs font-bold text-neutral-500 dark:text-neutral-500 uppercase tracking-widest mt-1">({variation.name})</span>
                           </div>
                         ))}
                       </div>

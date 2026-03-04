@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const notificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@firstchristiansallianceoutreach.org';
 
 export async function POST(request: Request) {
@@ -17,6 +16,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, simulated: true });
     }
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: 'FCAO Website <onboarding@resend.dev>', // Update to your verified domain e.g. 'noreply@firstchristiansallianceoutreach.org'
       to: notificationEmail,

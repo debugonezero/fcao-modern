@@ -84,18 +84,18 @@ export default function Shop() {
                 transition={{ delay: 0.2 + (index * 0.1) }}
                 className="glass-card flex flex-col overflow-hidden group hover:border-brand-gold/50 transition-colors"
               >
-                <div className="relative h-64 w-full bg-white/5 dark:bg-black/20 rounded-xl mb-6 overflow-hidden flex items-center justify-center p-4">
+                <div className="relative h-80 w-full bg-white/5 dark:bg-black/20 rounded-xl mb-6 overflow-hidden flex items-center justify-center p-4">
                   <Image 
-                    src={product.image} alt={product.name} width={300} height={300} 
+                    src={product.image} alt={product.name} width={400} height={400} 
                     className="object-contain max-h-full group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl" 
                   />
                 </div>
-                <div className="flex-1 flex flex-col">
-                  <div className="flex justify-end items-start mb-2">
-                    <span className="font-bold text-xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
+                <div className="flex-1 flex flex-col items-center text-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <span className="font-bold text-2xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
                   </div>
                   <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
-                  <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-left">
+                  <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-center">
                     <div className="space-y-4">
                       <p className="font-bold text-brand-blue dark:text-brand-blue-glow tracking-wider text-xs">{product.shortDescription}</p>
                       {product.authors && (

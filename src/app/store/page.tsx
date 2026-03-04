@@ -62,7 +62,7 @@ export default function Shop() {
         className="w-full max-w-5xl mx-auto px-6 text-center mb-16 relative z-10"
       >
         <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
-          FCAO <span className="text-brand-gold relative inline-block">Store<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
+          <span className="text-brand-gold relative inline-block">Store<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
           Support our mission. All net proceeds go toward advancing global outreach and community care initiatives.
@@ -94,10 +94,10 @@ export default function Shop() {
                   <div className="flex justify-end items-start mb-2">
                     <span className="font-bold text-xl text-neutral-900 dark:text-white transition-all">{currentPrice}</span>
                   </div>
-                  <h3 className="text-xl font-heading font-bold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
+                  <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
                   <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-left">
                     <div className="space-y-4">
-                      <p className="font-bold text-brand-gold uppercase">{product.shortDescription}</p>
+                      <p className="font-bold text-brand-blue dark:text-brand-blue-glow tracking-wider text-xs first-letter:capitalize">{product.shortDescription.toLowerCase()}</p>
                       {product.authors && (
                         <ul className="list-disc pl-5 space-y-1 text-sm">
                           {product.authors.map((author, i) => (
@@ -105,7 +105,7 @@ export default function Shop() {
                           ))}
                         </ul>
                       )}
-                      <p className="line-clamp-6 hover:line-clamp-none transition-all cursor-pointer">
+                      <p className="transition-all">
                         {product.longDescription}
                       </p>
                     </div>

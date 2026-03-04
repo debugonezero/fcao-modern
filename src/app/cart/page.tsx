@@ -114,7 +114,7 @@ export default function CartPage() {
       >
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
-            <Link href="/shop" className="text-neutral-500 hover:text-brand-gold transition-all hover:-translate-x-1">
+            <Link href="/store" className="text-neutral-500 hover:text-brand-gold transition-all hover:-translate-x-1">
               <ArrowLeft className="w-6 h-6" />
             </Link>
             <h1 className="text-4xl font-heading font-bold text-neutral-900 dark:text-white uppercase tracking-wider text-left">Your Cart</h1>
@@ -263,7 +263,7 @@ export default function CartPage() {
           <div className="flex flex-col items-center justify-center py-32 glass-card border-dashed">
             <ShoppingCart className="w-20 h-20 text-neutral-200 dark:text-neutral-800 mb-6 animate-pulse" />
             <p className="text-2xl text-neutral-500 font-heading mb-8 uppercase tracking-widest font-bold">Your cart is empty</p>
-            <Link href="/shop" className="bg-brand-gold hover:bg-brand-gold-glow text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl hover:-translate-y-1">
+            <Link href="/store" className="bg-brand-gold hover:bg-brand-gold-glow text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl hover:-translate-y-1">
               Start Shopping
             </Link>
           </div>

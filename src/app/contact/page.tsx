@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Send, Loader2, CheckCircle2, User } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -46,7 +46,7 @@ export default function Contact() {
           Get In <span className="text-brand-blue relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-blue/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          We would love to hear from you. Whether you have questions about our upcoming projects, want to support our mission, or simply want to connect, please reach out.
+          We would love to hear from you. Whether you have questions about our existing projects, want to support our mission, or simply want to connect, please reach out.
         </p>
       </motion.div>
 
@@ -60,17 +60,25 @@ export default function Contact() {
           >
             <div className="glass-card flex items-start gap-4 hover:border-brand-gold/50 transition-colors group">
               <div className="mt-1 p-3 bg-brand-gold/10 rounded-full group-hover:bg-brand-gold/20 transition-colors">
-                <Mail className="w-6 h-6 text-brand-gold" />
+                <User className="w-6 h-6 text-brand-gold" />
               </div>
               <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Contact Person</h4>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 font-medium mb-2">Armen Simonian</p>
+                <p className="text-base text-neutral-900 dark:text-white font-bold">Armen Simonian</p>
+              </div>
+            </div>
+
+            <div className="glass-card flex items-start gap-4 hover:border-brand-gold/50 transition-colors group">
+              <div className="mt-1 p-3 bg-brand-gold/10 rounded-full group-hover:bg-brand-gold/20 transition-colors">
+                <Mail className="w-6 h-6 text-brand-gold" />
+              </div>
+              <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Email Us</h4>
                 <a 
-                  href="mailto:info@firstchristiansallianceoutreach.org" 
-                  className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-brand-gold transition-colors break-all"
+                  href="mailto:info@Firstchristiansalliance.org" 
+                  className="text-base text-neutral-900 dark:text-white font-bold hover:text-brand-gold transition-colors break-all"
                 >
-                  info@firstchristiansallianceoutreach.org
+                  info@Firstchristiansalliance.org
                 </a>
               </div>
             </div>
@@ -82,10 +90,10 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-neutral-900 dark:text-white mb-1">Call Us</h4>
                 <a 
-                  href="tel:8183884468" 
-                  className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-brand-gold transition-colors"
+                  href="tel:8553333547" 
+                  className="text-base text-neutral-900 dark:text-white font-bold hover:text-brand-gold transition-colors"
                 >
-                  818-388-4468
+                  855-333-3547
                 </a>
               </div>
             </div>
@@ -93,7 +101,7 @@ export default function Contact() {
             <div className="glass-card p-6 border-l-4 border-l-brand-gold bg-brand-gold/5">
               <h4 className="font-bold text-neutral-900 dark:text-white mb-2">Response Time</h4>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                We typically respond to all inquiries within 24-48 hours. Thank you for your patience and for supporting our mission.
+                We typically respond to all inquiries within 2 or 3 business days. Thank you for your patience and for supporting our mission.
               </p>
             </div>
 
@@ -104,7 +112,7 @@ export default function Contact() {
                 All proceeds from our books and artwork directly support the FCAO mission.
               </p>
               <Link 
-                href="/shop" 
+                href="/store" 
                 className="text-sm font-bold text-brand-blue hover:text-brand-blue-glow transition-colors"
               >
                 Go to Store →

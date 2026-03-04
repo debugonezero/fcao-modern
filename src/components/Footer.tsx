@@ -10,16 +10,12 @@ export function Footer() {
         <Image 
           src="/images/First-Christians-logo-header.png" 
           alt="FCAO Logo" 
-          width={200} height={68} 
-          className="object-contain transition-all duration-300 dark:invert-0 dark:hue-rotate-0 invert hue-rotate-180 opacity-80 hover:opacity-100 transition-opacity"
+          width={240} height={82} 
+          className="object-contain transition-all duration-300 opacity-100"
         />
-        <p className="text-neutral-500 text-sm max-w-md font-serif">The modernized, high-performance platform for extending global outreach and community support.</p>
-        <p className="text-neutral-500 text-sm mt-4 font-serif">Contact: <strong>Armen Simonian</strong></p>
-        <p className="text-neutral-500 text-sm font-serif">Phone: <a href="tel:8183884468" className="hover:text-brand-gold transition-colors">818-388-4468</a></p>
-        
         <div className="flex gap-6 mt-8">
           {/* Footer links */}
-          {['About', 'Projects', 'Shop', 'Contact', 'Donate', 'Privacy Policy'].map((link) => (
+          {['About', 'Projects', 'Store', 'Contact', 'Donate', 'Privacy Policy'].map((link) => (
             <Link key={link} href={link === 'About' ? '/about' : `/${link.toLowerCase().replace(' ', '-')}`} className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-brand-gold dark:hover:text-brand-gold-glow uppercase tracking-wider transition-colors">
               {link}
             </Link>

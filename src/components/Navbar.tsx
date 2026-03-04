@@ -24,13 +24,13 @@ export const Navbar = () => {
           <Image 
             src="/images/First-Christians-logo-header.png" 
             alt="FCAO Logo" 
-            width={192} height={66} 
-            className="object-contain transition-all duration-300 dark:invert-0 dark:hue-rotate-0 invert hue-rotate-180"
+            width={240} height={82} 
+            className="object-contain transition-all duration-300"
             priority
           />
         </Link>
         
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-600 dark:text-neutral-300">
+        <div className="hidden md:flex items-center gap-8 text-base font-medium text-neutral-600 dark:text-neutral-300">
           <div className="relative group">
             <Link href="/about" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors flex items-center gap-1 py-4">
               About
@@ -40,14 +40,14 @@ export const Navbar = () => {
             </Link>
             <div className="absolute top-full left-0 hidden group-hover:block pt-0">
               <div className="bg-white dark:bg-brand-dark shadow-xl border border-black/5 dark:border-white/5 rounded-2xl overflow-hidden min-w-[220px] mt-1 backdrop-blur-xl">
-                <Link href="/about" className="block px-6 py-3 hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-brand-gold transition-colors border-b border-black/5 dark:border-white/5 font-semibold text-brand-gold">About Introduction</Link>
+                <Link href="/about" className="block px-6 py-3 hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-brand-gold transition-colors border-b border-black/5 dark:border-white/5 font-semibold text-brand-gold">Introduction</Link>
                 <Link href="/mission-statement" className="block px-6 py-3 hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-brand-gold transition-colors border-b border-black/5 dark:border-white/5">Mission Statement</Link>
                 <Link href="/statement-of-faith" className="block px-6 py-3 hover:bg-neutral-50 dark:hover:bg-white/5 hover:text-brand-gold transition-colors">Statement of Faith</Link>
               </div>
             </div>
           </div>
           <Link href="/projects" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors">Projects</Link>
-          <Link href="/shop" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors">Store</Link>
+          <Link href="/store" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors">Store</Link>
           <Link href="/cart" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors">Cart</Link>
           <Link href="/contact" className="hover:text-brand-gold dark:hover:text-brand-gold-glow transition-colors">Contact</Link>
         </div>

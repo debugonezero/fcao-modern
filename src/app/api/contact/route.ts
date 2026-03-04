@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const notificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@firstchristiansallianceoutreach.org';
+const notificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@Firstchristiansalliance.org';
 
 export async function POST(request: Request) {
   try {

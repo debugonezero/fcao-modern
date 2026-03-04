@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
-    const adminEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@firstchristiansallianceoutreach.org';
+    const adminEmail = process.env.CONTACT_NOTIFICATION_EMAIL || 'info@Firstchristiansalliance.org';
     const customerEmail = session.customer_details?.email;
 
     console.log(`Processing successful checkout for session: ${session.id}`);
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
         
         if (customerEmail) {
           await resend.emails.send({
-            from: 'FCAO Store <orders@firstchristiansallianceoutreach.org>',
+            from: 'FCAO Store <orders@Firstchristiansalliance.org>',
             to: customerEmail,
             subject: 'Order Confirmation - First Christians Alliance Outreach',
             html: `<h1>Thank you for your order!</h1><p>We have received your payment for ${session.amount_total ? (session.amount_total / 100).toFixed(2) : '0.00'} ${session.currency?.toUpperCase()}.</p><p>We will process your shipment shortly.</p>`
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
         }
 
         await resend.emails.send({
-          from: 'FCAO System <system@firstchristiansallianceoutreach.org>',
+          from: 'FCAO System <system@Firstchristiansalliance.org>',
           to: adminEmail,
           subject: 'New Store Order Received!',
           html: `<h1>New Order Received</h1><p>Customer: ${session.customer_details?.name}</p><p>Email: ${customerEmail}</p><p>Amount: ${(session.amount_total || 0) / 100} ${session.currency}</p>`

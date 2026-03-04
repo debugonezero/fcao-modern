@@ -16,11 +16,11 @@ export default function Projects() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-5xl mx-auto px-6 text-center mb-16"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white">
-          Our <span className="text-brand-gold relative inline-block">Projects<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900 dark:text-white text-center">
+          <span className="text-brand-gold relative inline-block">Projects<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
       </motion.div>
-
+ 
       {/* PROJECT 1: BOOK */}
       <section className="w-full max-w-6xl mx-auto px-6 mb-24 relative z-10">
         <div className="glass-card flex flex-col md:flex-row gap-12 items-center">
@@ -30,7 +30,7 @@ export default function Projects() {
             transition={{ delay: 0.2 }}
             className="w-full md:w-1/3 flex justify-center"
           >
-            <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-black/20 group">
+            <div className="relative rounded-lg overflow-hidden group">
               <Image 
                 src="/images/Faithful-Saints-of-Christ-Book-Cover.png" 
                 alt="Faithful Saints of Christ Book Cover" 
@@ -50,21 +50,21 @@ export default function Projects() {
             transition={{ delay: 0.3 }}
             className="w-full md:w-2/3"
           >
-            <h2 className="text-3xl font-heading font-extrabold mb-6 text-neutral-900 dark:text-white">
-              Faithful Saints of Christ
+            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900 dark:text-white">
+              Faithful Saints of Christ Book
             </h2>
+            <h3 className="text-base font-bold text-brand-blue dark:text-brand-blue-glow tracking-wide mb-6">
+              Perseverance under persecution
+            </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
               <p>
-                <strong>Perseverance Under Persecution.</strong> The first book that FCAO commissioned to be published is titled <em>Faithful Saints of Christ</em>. The book was commissioned by FCAO to be written by several authors and scholars, and it was recently completed and published in December 2025. FCAO also commissioned a French artist (Mathieu Nozieres) that has produced an oil painting portraying a &quot;pre-battle scene&quot; from the historical event called the Battle of Avarayr.
+                The first book that FCAO commissioned to be published is titled <em>Faithful Saints of Christ</em>. The book was commissioned by FCAO to be written by several authors and scholars, and it was recently completed and published in December 2025. FCAO also commissioned a French artist (Mathieu Nozieres) that has produced an oil painting portraying a &quot;pre-battle scene&quot; from the historical event called the Battle of Avarayr.
               </p>
               <p>
-                <em>Faithful Saints of Christ</em> is both a spiritual journey and a powerful historical testimony. It traces the miracles, struggles, and perseverance that shaped Armenian history. Readers will witness the courage of Armenians who defended their Christian faith against oppression—with emphasis on the story of St. Vartan and the Battle of Avarayr: the conflict in which the Armenians decisively confirmed their identity as a Christian people. The narrative continues into modern history, recounting the Armenian Genocide of 1915, the hidden genocide of 1918 in Iran, and the ongoing persecution of Christians worldwide.
+                <em>Faithful Saints of Christ</em> is both a spiritual journey and a powerful historical testimony. It defines the meaning of the &quot;faithful saint of Christ&quot; and also provides a detailed explanation of the fundamentals of Christian faith. It traces the miracles, struggles, and perseverance that shaped Armenian history. Readers will witness the courage of Armenians who defended their Christian faith against oppression—with emphasis on the story of St. Vartan and the Battle of Avarayr: the conflict in which the Armenians decisively confirmed their identity as a Christian people. The narrative continues into modern history, recounting the Armenian Genocide of 1915, the hidden genocide of 1918 in Iran, and the ongoing persecution of Christians worldwide. Faithful Saints of Christ honors the saints of yesterday who remained steadfast under persecution, while encouraging believers of today to stay faithful to Christ against the obstacles of the present world.
               </p>
               <p>
-                Faithful Saints of Christ honors the saints of yesterday who remained steadfast under persecution, while encouraging believers of today to stay faithful to Christ against the obstacles of the present world.
-              </p>
-              <p>
-                This book is intended to be a <strong>Phase 1 project</strong> which will hopefully lead into the production of a movie script about the Battle of Avarayr (<strong>Phase 2</strong>) which God willing will ultimately lead into the production of the movie itself (<strong>Phase 3</strong>).
+                This book is intended to be a project which will hopefully lead into the production of a movie script about the Battle of Avarayr which God willing will ultimately lead into the production of the movie itself.
               </p>
               <p>
                 All net proceeds from the sale of this book and the sale of the reproduction copies of the original oil painting will go toward the professional writing of the movie script and/or supporting various Christian mission-based organizations.
@@ -75,31 +75,49 @@ export default function Projects() {
       </section>
 
       {/* PROJECT 2: OIL PAINTING */}
-      <section className="w-full max-w-7xl mx-auto px-6 mb-24 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden glass-card p-0"
-        >
-          <div className="relative h-[400px] md:h-[500px] w-full">
-            <Image 
-              src="/images/Battle-of-Avarayr-1000px.png" 
-              alt="Battle of Avarayr Original Oil Painting" 
-              fill
-              className="object-cover" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-              <h3 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-2">Commissioned Artwork</h3>
-              <h2 className="text-3xl md:text-4xl font-heading font-extrabold mb-4 text-white">
-                The Pre-Battle Scene of Avarayr
-              </h2>
-              <p className="text-neutral-200 max-w-3xl leading-relaxed text-sm md:text-base">
-                An original oil painting masterpiece produced by French artist Mathieu Nozieres portraying the legendary historical event. The painting was publicly displayed for the first time at our book signing events. High-quality reproduction copies are available for purchase to support our global mission.
+      <section className="w-full max-w-6xl mx-auto px-6 mb-24 relative z-10">
+        <div className="glass-card flex flex-col md:flex-row gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="w-full md:w-1/3 flex justify-center"
+          >
+            <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-black/20 group">
+              <Image 
+                src="/images/Battle-of-Avarayr-1000px.png" 
+                alt="Battle of Avarayr Original Oil Painting" 
+                width={600} height={400} 
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                <button className="bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white px-6 py-2 rounded-full font-bold shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 text-sm tracking-wide">
+                  Available in Store
+                </button>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="w-full md:w-2/3"
+          >
+            <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900 dark:text-white">
+              Pre-Battle Scene of Avarayr
+            </h2>
+            <h3 className="text-base font-bold text-brand-blue dark:text-brand-blue-glow tracking-wide mb-6">
+              [Subheader placeholder]
+            </h3>
+            <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
+              <p>
+                An original oil painting masterpiece produced by French artist Mathieu Nozieres portraying the legendary historical event. The painting was publicly displayed for the first time at our book signing events. High-quality reproduction copies are available for purchase to support our mission.
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* PROJECT 3: BOOK SIGNING EVENTS */}

@@ -40,7 +40,7 @@ export const createShippoOrder = async (orderData: Order) => {
           city: "Glendale",
           company: "FCAO",
           country: "US",
-          email: "info@firstchristiansallianceoutreach.org",
+          email: "info@Firstchristiansalliance.org",
           name: "Armen Simonian",
           phone: "",
           state: "CA",

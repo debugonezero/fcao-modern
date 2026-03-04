@@ -1,10 +1,12 @@
 
+import { Order, OrderItem } from './db';
+
 /**
  * Shippo Integration Library
  * Handles sending orders to Shippo for fulfillment.
  */
 
-export const createShippoOrder = async (orderData: any) => {
+export const createShippoOrder = async (orderData: Order) => {
   const SHIPPO_TOKEN = process.env.SHIPPO_API_KEY;
 
   if (!SHIPPO_TOKEN) {
@@ -45,7 +47,7 @@ export const createShippoOrder = async (orderData: any) => {
           street1: "123 Main St", // Update with real address
           zip: "91205"
         },
-        line_items: orderData.items.map((item: any) => ({
+        line_items: orderData.items.map((item: OrderItem) => ({
           quantity: item.quantity,
           sku: item.product_id,
           title: item.product_name,
@@ -57,7 +59,7 @@ export const createShippoOrder = async (orderData: any) => {
         placed_at: new Date().toISOString(),
         order_number: orderData.id,
         order_status: "PAID",
-        shipping_cost: (orderData.shipping_cost / 100).toString(),
+        shipping_cost: ((orderData.shipping_cost || 0) / 100).toString(),
         shipping_cost_currency: "USD",
         shipping_method: orderData.shipping_method,
         subtotal_price: ((orderData.total_amount - (orderData.shipping_cost || 0)) / 100).toString(),

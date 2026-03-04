@@ -124,17 +124,17 @@ export const saveOrder = (order: Order) => {
 
 export const getOrders = (startDate?: string, endDate?: string) => {
   let query = "SELECT * FROM orders WHERE status != 'shipped'";
-  const params: any[] = [];
+  const params: (string | number)[] = [];
 
   if (startDate && endDate) {
     query += " AND created_at BETWEEN ? AND ?";
     params.push(startDate, endDate);
   }
 
-  const orders = db.prepare(query).all(...params) as any[];
+  const orders = db.prepare(query).all(...params) as (Order & { id: string })[];
 
   return orders.map(order => {
-    const items = db.prepare("SELECT * FROM order_items WHERE order_id = ?").all(order.id) as any[];
+    const items = db.prepare("SELECT * FROM order_items WHERE order_id = ?").all(order.id) as OrderItem[];
     return {
       ...order,
       items

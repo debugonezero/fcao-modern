@@ -1,6 +1,6 @@
 import { calculateSmartRates } from '@/lib/shipping';
 
-export const getShipStationRates = async (toAddress: any, items: any[]) => {
+export const getShipStationRates = async (toAddress: { postalCode: string }, items: { weight?: string | number, quantity: number }[]) => {
   // Calculate total weight
   const totalWeight = items.reduce((acc, item) => {
     const weightValue = parseFloat(item.weight?.toString().replace(/[^\d.]/g, '') || "1");

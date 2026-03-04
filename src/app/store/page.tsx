@@ -97,7 +97,7 @@ export default function Shop() {
                   <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900 dark:text-white">{product.name}</h3>
                   <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-6 flex-1 text-left">
                     <div className="space-y-4">
-                      <p className="font-bold text-brand-blue dark:text-brand-blue-glow tracking-wider text-xs first-letter:capitalize">{product.shortDescription.toLowerCase()}</p>
+                      <p className="font-bold text-brand-blue dark:text-brand-blue-glow tracking-wider text-xs">{product.shortDescription}</p>
                       {product.authors && (
                         <ul className="list-disc pl-5 space-y-1 text-sm">
                           {product.authors.map((author, i) => (

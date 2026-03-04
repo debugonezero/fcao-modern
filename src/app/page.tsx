@@ -14,28 +14,6 @@ export default function Home() {
       <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/40 rounded-full blur-[150px] pointer-events-none" />
 
 
-      {/* BANNER 2 IMAGES */}
-      <div className="w-full flex border-y border-brand-gold/30 shadow-sm pointer-events-none bg-brand-light/50 dark:bg-[#12120e] relative z-20">
-        <div className="relative w-1/2 h-[100px] md:h-[150px]">
-          <Image 
-            src="/images/banner.jpg" 
-            alt="Armenian Saints Banner Left" 
-            fill 
-            className="object-cover" 
-            priority
-          />
-        </div>
-        <div className="relative w-1/2 h-[100px] md:h-[150px]">
-          <Image 
-            src="/images/banner.jpg" 
-            alt="Armenian Saints Banner Right" 
-            fill 
-            className="object-cover" 
-            priority
-          />
-        </div>
-      </div>
-
       {/* INTRODUCTION SECTION */}
       <section className="w-full max-w-6xl mx-auto px-6 py-20 md:py-32 relative z-10">
         <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">

@@ -6,12 +6,21 @@ import { useState } from "react";
 
 export default function Donate() {
   const [amount, setAmount] = useState<number | 'custom'>(50);
+  const [customAmount, setCustomAmount] = useState<string>('');
   const [isRecurring, setIsRecurring] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
   const amounts = [25, 50, 100, 250, 500];
 
   const handleDonate = async () => {
+    const finalAmount = amount === 'custom' ? parseFloat(customAmount) : amount;
+    
+    if (!finalAmount || finalAmount <= 0) {
+      alert("Please select or enter a valid donation amount.");
+      setIsProcessing(false);
+      return;
+    }
+
     setIsProcessing(true);
     try {
       const res = await fetch('/api/checkout', {
@@ -21,8 +30,8 @@ export default function Donate() {
           items: [
             {
               isCustomAmount: true,
-              amount: amount === 'custom' ? null : amount,
-              name: 'FCAO Donation'
+              amount: finalAmount,
+              name: isRecurring ? 'Monthly FCAO Donation' : 'One-Time FCAO Donation'
             }
           ],
           mode: isRecurring ? 'subscription' : 'payment'
@@ -56,9 +65,6 @@ export default function Donate() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-4xl mx-auto px-6 text-center mb-12 relative z-10"
       >
-        <div className="inline-flex items-center justify-center p-3 glass rounded-full mb-6">
-          <Heart className="w-8 h-8 text-brand-gold fill-brand-gold/20" />
-        </div>
         <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
           Support Our <span className="text-brand-gold relative inline-block">Mission<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
@@ -82,13 +88,13 @@ export default function Donate() {
               onClick={() => setIsRecurring(false)}
               className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${!isRecurring ? 'bg-white shadow-sm text-neutral-900' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
-              One-Time Gift
+              One-Time Donation
             </button>
             <button
               onClick={() => setIsRecurring(true)}
               className={`flex-1 py-3 text-sm font-bold rounded-md transition-all ${isRecurring ? 'bg-white shadow-sm text-neutral-900' : 'text-neutral-500 hover:text-neutral-700'}`}
             >
-              Monthly Impact
+              Monthly Donation
             </button>
           </div>
 
@@ -110,6 +116,25 @@ export default function Donate() {
               Custom
             </button>
           </div>
+
+          {amount === 'custom' && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="mb-6"
+            >
+              <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Enter Amount ($)</label>
+              <input
+                type="number"
+                min="1"
+                step="1"
+                value={customAmount}
+                onChange={(e) => setCustomAmount(e.target.value)}
+                placeholder="250"
+                className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 text-neutral-900 transition-all font-serif"
+              />
+            </motion.div>
+          )}
 
           <button 
             onClick={handleDonate}

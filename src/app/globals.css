@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -9,48 +9,57 @@
   --color-brand-dark: #1a1a15;
   --color-brand-light: #ffecd3;
 
-  --font-serif: 'Sorts Mill Goudy', Georgia, serif;
-  --font-sans: 'Outfit', system-ui, sans-serif;
-  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-serif: "Sorts Mill Goudy", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-heading: "Outfit", system-ui, sans-serif;
 }
 
-@custom-variant dark (&:is(.dark *));
-
 /* Font applied outside any @layer so it has higher priority than utilities */
-html, body {
-  font-family: 'Sorts Mill Goudy', Georgia, serif;
+html,
+body {
+  font-family: "Sorts Mill Goudy", Georgia, serif;
   background-color: #ffecd3;
   color: #1a1a15;
 }
 
-html.dark, html.dark body {
-  background-color: #1a1a15;
-  color: #ffecd3;
-}
-
-p, li, ol, ul, blockquote {
-  font-family: 'Sorts Mill Goudy', Georgia, serif;
+p,
+li,
+ol,
+ul,
+blockquote {
+  font-family: "Sorts Mill Goudy", Georgia, serif;
   font-size: 18px;
   line-height: 28px;
   -webkit-font-smoothing: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sorts Mill Goudy', Georgia, serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sorts Mill Goudy", Georgia, serif;
 }
 
 /* UI elements use Outfit */
-nav, button, label, input, select, textarea,
-.btn, .font-sans {
-  font-family: 'Outfit', system-ui, sans-serif;
+nav,
+button,
+label,
+input,
+select,
+textarea,
+.btn,
+.font-sans {
+  font-family: "Outfit", system-ui, sans-serif;
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-xl;
   }
   .glass-card {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 md:p-8;
+    @apply bg-white/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#8b876d] via-[#605d45] to-[#4a4835];

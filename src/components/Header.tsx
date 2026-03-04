@@ -39,7 +39,7 @@ export const Header = () => {
             />
           </div>
         </div>
-        <div className="absolute inset-0 bg-brand-dark/20 dark:bg-black/40" />
+        <div className="absolute inset-0 bg-brand-dark/20" />
       </div>
 
       {/* Logo Container */}

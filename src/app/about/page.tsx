@@ -16,11 +16,11 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-4xl mx-auto px-6 mb-16 relative z-10"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-neutral-900 dark:text-white text-center">
+        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-neutral-900 text-center">
           Introduction
         </h1>
         <div className="glass-card p-8 md:p-12 text-left">
-          <p className="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed">
+          <p className="text-neutral-600 text-lg leading-relaxed">
             Founded in 2022, First Christian Alliance Outreach (FCAO) is a non-profit, non-denominational Christian organization which strives to: 1) promote Christian faith through the production of inspiring Christian books and films, and 2) support other Christian mission-based organizations. FCAO is governed by its board of directors and associates to ensure that its operations are conducted effectively and professionally with the utmost integrity.
           </p>
         </div>

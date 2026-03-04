@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -18,17 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className="text-neutral-900 dark:text-neutral-50 antialiased selection:bg-brand-gold/30 transition-colors duration-300">
+    <html lang="en" className="scroll-smooth">
+      <body className="text-neutral-900 antialiased selection:bg-brand-gold/30 transition-colors duration-300">
         <CartProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            <Navbar />
-            <main className="min-h-screen flex flex-col items-center">
-              {children}
-            </main>
-            <Footer />
-          </ThemeProvider>
+          <Header />
+          <Navbar />
+          <main className="min-h-screen flex flex-col items-center">
+            {children}
+          </main>
+          <Footer />
         </CartProvider>
       </body>
     </html>

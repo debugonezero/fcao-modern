@@ -109,7 +109,7 @@ export default function Projects() {
               Pre-Battle Scene of Avarayr
             </h2>
             <h3 className="text-base font-bold text-brand-blue dark:text-brand-blue-glow tracking-wide mb-6">
-              [Subheader placeholder]
+              Reproduction Copy of Original Oil Painting
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
               <p>

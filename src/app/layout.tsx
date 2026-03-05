@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className="text-neutral-900 antialiased selection:bg-brand-gold/30 transition-colors duration-300">
         <CartProvider>
           <Header />

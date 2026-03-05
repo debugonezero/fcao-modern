@@ -113,7 +113,7 @@ export default function Projects() {
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
               <p>
-                An original oil painting masterpiece produced by French artist Mathieu Nozieres portraying the legendary historical event. The painting was publicly displayed for the first time at our book signing events. High-quality reproduction copies are available for purchase to support our mission.
+                The Pre-Battle Scene of Avarayr Portrait is a reproduction copy of the original oil painting masterpiece by famous French Artist, Mathieu Nozieres. The oil painting was produced as a complement to the Faithful Saints of Christ book, and a cropped portion of the painting is presented as the cover of the book. The events surrounding the Battle of Avarayr are described in detail in the book. The size of the original oil painting is 30 inches high and 60 inches wide. High-quality reproduction copies are available for purchase to support our mission.
               </p>
             </div>
           </motion.div>

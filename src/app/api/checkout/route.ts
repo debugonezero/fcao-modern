@@ -118,7 +118,14 @@ export async function POST(request: Request) {
       metadata,
       shipping_address_collection: {
          allowed_countries: ['US', 'CA', 'GB', 'AM'],
-      }
+      },
+      automatic_tax: { enabled: true },
+      customer_creation: 'always',
+      customer_update: {
+        address: 'auto',
+        shipping: 'auto',
+      },
+      billing_address_collection: 'required',
     };
 
     // Create Checkout Session

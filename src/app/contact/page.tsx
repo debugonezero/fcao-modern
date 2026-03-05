@@ -43,7 +43,7 @@ export default function Contact() {
         className="w-full max-w-4xl mx-auto px-6 text-center mb-16 relative z-10"
       >
         <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-4 text-neutral-900">
-          Get In <span className="text-brand-blue relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-blue/30 rounded-full"/></span>
+          Get In <span className="text-brand-gold relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 max-w-2xl mx-auto">
           We would love to hear from you. Whether you have questions about our existing projects, want to support our mission, or simply want to connect, please reach out.
@@ -106,14 +106,13 @@ export default function Contact() {
             </div>
 
             <div className="hidden lg:block glass-card p-6 overflow-hidden relative group">
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-blue/10 rounded-full blur-2xl group-hover:bg-brand-blue/20 transition-colors" />
               <h4 className="font-bold text-neutral-900 mb-2 italic">Looking for the Store?</h4>
               <p className="text-sm text-neutral-600 mb-4">
                 All proceeds from our books and artwork directly support the FCAO mission.
               </p>
               <Link 
                 href="/store" 
-                className="text-sm font-bold text-brand-blue hover:text-brand-blue-glow transition-colors"
+                className="text-sm font-bold text-brand-gold hover:opacity-80 transition-colors"
               >
                 Go to Store →
               </Link>
@@ -124,7 +123,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="w-full lg:w-2/3 glass-card !p-8 border-t-4 border-t-brand-blue"
+            className="w-full lg:w-2/3 glass-card !p-8 border-t-4 border-t-brand-gold"
           >
             <h3 className="text-2xl font-bold mb-6 text-neutral-900 font-serif">Send a Message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -146,7 +145,7 @@ export default function Contact() {
                   <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">First Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
                     placeholder="" 
                     value={formData.firstName}
                     onChange={(e) => setFormData({...formData, firstName: e.target.value})}
@@ -157,7 +156,7 @@ export default function Contact() {
                   <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Last Name</label>
                   <input required
                     type="text" 
-                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                    className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
                     placeholder="" 
                     value={formData.lastName}
                     onChange={(e) => setFormData({...formData, lastName: e.target.value})}
@@ -170,7 +169,7 @@ export default function Contact() {
                 <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Email Address</label>
                 <input required
                   type="email" 
-                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 text-neutral-900 transition-all disabled:opacity-50 font-serif" 
                   placeholder="" 
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -182,7 +181,7 @@ export default function Contact() {
                 <label className="block text-sm font-bold text-neutral-700 mb-2 font-serif">Message</label>
                 <textarea required
                   rows={5} 
-                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 text-neutral-900 transition-all resize-none disabled:opacity-50 font-serif" 
+                  className="w-full bg-neutral-100 border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 text-neutral-900 transition-all resize-none disabled:opacity-50 font-serif" 
                   placeholder="Your Message..."
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -193,7 +192,7 @@ export default function Contact() {
               <button 
                 type="submit"
                 disabled={status === 'loading'}
-                className="bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 w-full md:w-auto tracking-wide disabled:hover:-translate-y-0 disabled:opacity-70"
+                className="bg-brand-gold text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 w-full md:w-auto tracking-wide disabled:hover:-translate-y-0 disabled:opacity-70"
               >
                 {status === 'loading' ? (
                   <Loader2 className="w-5 h-5 animate-spin" />

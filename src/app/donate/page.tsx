@@ -57,15 +57,13 @@ export default function Donate() {
 
   return (
     <div className="w-full min-h-screen relative overflow-hidden flex flex-col items-center pt-32 pb-20">
-      <div className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-brand-green/10 rounded-full blur-[150px] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-4xl mx-auto px-6 text-center mb-12 relative z-10"
       >
-        <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
+        <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mb-4 text-neutral-900">
           Support Our <span className="text-brand-gold relative inline-block">Mission<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
         <div className="text-neutral-600 max-w-2xl mx-auto text-lg leading-relaxed flex flex-col gap-4">
@@ -139,7 +137,7 @@ export default function Donate() {
           <button 
             onClick={handleDonate}
             disabled={isProcessing}
-            className="w-full bg-gradient-to-r from-brand-gold to-brand-gold-glow text-white font-bold py-5 rounded-xl text-lg mt-6 shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 tracking-wide"
+            className="w-full bg-brand-gold text-white font-bold py-5 rounded-xl text-lg mt-6 shadow-xl shadow-brand-gold/20 border border-white/10 hover:shadow-2xl hover:shadow-brand-gold/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 tracking-wide"
           >
             {isProcessing ? <Loader2 className="w-6 h-6 animate-spin" /> : `Give ${amount === 'custom' ? 'Any Amount' : '$' + amount}`}
           </button>

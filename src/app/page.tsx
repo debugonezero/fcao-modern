@@ -9,9 +9,6 @@ export default function Home() {
 
   return (
     <div className="w-full relative overflow-hidden flex flex-col items-center">
-      {/* Dynamic Background Blurs */}
-      <div className="fixed top-[-20%] left-[-10%] w-[500px] h-[500px] bg-brand-gold/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/40 rounded-full blur-[150px] pointer-events-none" />
 
 
       {/* INTRODUCTION SECTION */}
@@ -51,10 +48,10 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-8 justify-center">
-              <Link href="#mission-statement" className="bg-brand-gold hover:brightness-90 text-white px-7 py-2.5 rounded-full text-sm transition-all tracking-wide shadow-md">
+              <Link href="#mission-statement" className="bg-brand-gold text-white font-bold px-7 py-3 rounded-xl shadow-lg shadow-brand-gold/20 border border-white/10 hover:shadow-xl hover:shadow-brand-gold/40 hover:-translate-y-1 transition-all duration-300 text-xs tracking-widest uppercase">
                 Mission Statement
               </Link>
-              <Link href="#statement-of-faith" className="bg-brand-gold hover:brightness-90 text-white px-7 py-2.5 rounded-full text-sm transition-all tracking-wide shadow-md">
+              <Link href="#statement-of-faith" className="bg-brand-gold text-white font-bold px-7 py-3 rounded-xl shadow-lg shadow-brand-gold/20 border border-white/10 hover:shadow-xl hover:shadow-brand-gold/40 hover:-translate-y-1 transition-all duration-300 text-xs tracking-widest uppercase">
                 Statement of Faith
               </Link>
             </div>

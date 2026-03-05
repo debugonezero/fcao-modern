@@ -16,14 +16,14 @@ export function Footer() {
         <div className="flex gap-6 mt-8">
           {/* Footer links */}
           {['About', 'Projects', 'Store', 'Contact', 'Donate'].map((link) => (
-            <Link key={link} href={link === 'About' ? '/about' : `/${link.toLowerCase().replace(' ', '-')}`} className="text-xs text-neutral-500 hover:text-brand-gold uppercase tracking-wider transition-colors">
+            <Link key={link} href={link === 'About' ? '/about' : `/${link.toLowerCase().replace(' ', '-')}`} className="text-sm text-neutral-500 hover:text-brand-gold uppercase tracking-wider transition-colors font-bold">
               {link}
             </Link>
           ))}
         </div>
         
         <div className="w-full h-px bg-black/5 my-8 max-w-3xl" />
-        <p className="text-neutral-500 text-xs font-serif">&copy; {new Date().getFullYear()} First Christians Alliance Outreach.</p>
+        <p className="text-neutral-500 text-sm font-serif font-bold">&copy; {new Date().getFullYear()} First Christians Alliance Outreach.</p>
       </div>
     </footer>
   );

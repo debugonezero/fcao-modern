@@ -46,7 +46,7 @@ export default function Contact() {
           Get In <span className="text-brand-gold relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 max-w-2xl mx-auto">
-          We would love to hear from you. Whether you have questions about our existing projects, want to support our mission, or simply want to connect, please reach out.
+          We would love to hear from you. Whether you have questions about our existing projects or simply want to connect, please reach out.
         </p>
       </motion.div>
 

@@ -64,9 +64,6 @@ export default function Shop() {
         <h1 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-neutral-900">
           <span className="text-brand-gold relative inline-block">Store<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
-        <p className="text-neutral-600 max-w-2xl mx-auto">
-          Support our mission. All net proceeds go toward advancing global outreach and community care initiatives.
-        </p>
       </motion.div>
 
       <section className="w-full max-w-5xl mx-auto px-6 relative z-10">
@@ -90,12 +87,12 @@ export default function Shop() {
                     className="object-contain max-h-full group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl" 
                   />
                 </div>
-                <div className="flex-1 flex flex-col items-center text-center">
-                  <div className="flex flex-col items-center mb-6">
+                <div className="flex-1 flex flex-col items-start text-left">
+                  <div className="flex flex-col items-start mb-6">
                     {hasVariations ? (
-                      <div className="flex flex-col items-center gap-3">
+                      <div className="flex flex-col items-start gap-3">
                         {product.variations!.map((variation: any, vIndex: number) => (
-                          <div key={vIndex} className="flex flex-col items-center transition-all">
+                          <div key={vIndex} className="flex flex-col items-start transition-all">
                             <span className="font-bold text-2xl text-neutral-900">{variation.price}</span>
                             <span className="text-xs font-bold text-neutral-500 uppercase tracking-widest mt-1">({variation.name})</span>
                           </div>
@@ -106,12 +103,12 @@ export default function Shop() {
                     )}
                   </div>
                   <h3 className="text-3xl font-heading font-extrabold mb-3 text-neutral-900">{product.name}</h3>
-                  <div className="text-sm text-neutral-600 mb-8 flex-1 text-center">
+                  <div className="text-sm text-neutral-600 mb-8 flex-1 text-left">
                     <div className="space-y-4">
                       <p className="font-bold text-brand-blue tracking-wider text-xs">{product.shortDescription}</p>
                       {product.authors && (
-                        <div className="text-center">
-                          <ul className="list-disc pl-5 space-y-1 text-sm text-left inline-block">
+                        <div className="text-left">
+                          <ul className="list-disc pl-5 space-y-1 text-sm text-left">
                             {product.authors.map((author, i) => (
                               <li key={i}>{author}</li>
                             ))}
@@ -125,9 +122,9 @@ export default function Shop() {
                   </div>
                   
                   {hasVariations && (
-                    <div className="mb-8 flex flex-col items-center">
+                    <div className="mb-8 flex flex-col items-start">
                       <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3">Select Size</label>
-                      <div className="flex flex-wrap justify-center gap-2">
+                      <div className="flex flex-wrap justify-start gap-2">
                         {product.variations!.map((variation: any, vIndex: number) => (
                           <button
                             key={vIndex}

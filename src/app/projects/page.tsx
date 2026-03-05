@@ -113,9 +113,12 @@ export default function Projects() {
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
               <p>
-                The Pre-Battle Scene of Avarayr Portrait is a reproduction copy of the original oil painting masterpiece by famous French Artist, Mathieu Nozieres. The oil painting was produced as a complement to the Faithful Saints of Christ book, and a cropped portion of the painting is presented as the cover of the book. The events surrounding the Battle of Avarayr are described in detail in the book. The size of the original oil painting is 30 inches high and 60 inches wide. High-quality reproduction copies are available for purchase to support our mission.
+                The Pre-Battle Scene of Avarayr Portrait is a reproduction copy of the original oil painting masterpiece by famous French Artist, Mathieu Nozieres. The oil painting was produced as a complement to the Faithful Saints of Christ book, and a cropped portion of the painting is presented as the cover of the book. The events surrounding the Battle of Avarayr are described in detail in the book. The size of the original oil painting is 30 inches high and 60 inches wide. High-quality reproduction copies are available for purchase.
               </p>
             </div>
+            <h3 className="text-xl font-bold text-brand-blue tracking-wide mt-6">
+              The original oil painting masterpiece has been appraised for $100,000 by a prominent art appraiser
+            </h3>
           </motion.div>
         </div>
       </section>
@@ -153,7 +156,7 @@ export default function Projects() {
                 <li><strong className="text-neutral-900">Dr. Michael Papazian:</strong> Professor of Religion and Philosophy at Berry College</li>
                 <li><strong className="text-neutral-900">Dr. Rosemary Hartounian Cohen:</strong> Sociologist with a doctorate degree from the Sorbonne, Paris</li>
                 <li><strong className="text-neutral-900">Armen Simonian:</strong> Founder of First Christians Alliance Outreach</li>
-                <li><strong className="text-neutral-900">Zorik Pirveysian:</strong> Environmental Engineer / Pastor</li>
+                <li><strong className="text-neutral-900">Zorik Pirveysian:</strong> Environment Engineer / Pastor</li>
               </ul>
               <p className="text-sm text-neutral-600 mt-6 pt-6 border-t border-black/10">
                 The Pre-Battle Scene of Avarayr’s original oil painting masterpiece will be displayed to the public for the first time at each of these events. The reproduction copies can be purchased at these events or from the FCAO&apos;s website.

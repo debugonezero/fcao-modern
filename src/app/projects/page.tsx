@@ -53,7 +53,7 @@ export default function Projects() {
             <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900">
               Faithful Saints of Christ Book
             </h2>
-            <h3 className="text-base font-bold text-brand-blue tracking-wide mb-6">
+            <h3 className="text-xl font-bold text-brand-blue tracking-wide mb-6">
               Perseverance under persecution
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
@@ -106,9 +106,9 @@ export default function Projects() {
             className="w-full md:w-2/3"
           >
             <h2 className="text-4xl font-heading font-extrabold mb-2 text-neutral-900">
-              Pre-Battle Scene of Avarayr
+              Pre-Battle Scene of Avarayr Portrait
             </h2>
-            <h3 className="text-base font-bold text-brand-blue tracking-wide mb-6">
+            <h3 className="text-xl font-bold text-brand-blue tracking-wide mb-6">
               Reproduction Copy of Original Oil Painting
             </h3>
             <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">

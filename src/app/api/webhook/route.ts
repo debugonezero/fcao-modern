@@ -70,7 +70,7 @@ export async function POST(req: Request) {
           product_id: metadata[`item_${i}_sku`] || `item_${i}`,
           product_name: metadata[`item_${i}_name`],
           quantity: parseInt(metadata[`item_${i}_qty`] || '1'),
-          unit_price: 0 // units are often bundled or specific prices not in metadata
+          unit_price: parseInt(metadata[`item_${i}_price`] || '0')
         });
         i++;
       }

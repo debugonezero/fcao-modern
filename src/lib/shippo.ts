@@ -51,9 +51,10 @@ export const createShippoOrder = async (orderData: Order) => {
           quantity: item.quantity,
           sku: item.product_id,
           title: item.product_name,
-          total_price: (item.unit_price / 100).toString(),
+          unit_price: (item.unit_price / 100).toString(),
+          total_price: ((item.unit_price * item.quantity) / 100).toFixed(2),
           currency: "USD",
-          weight: item.product_id.includes('book') ? "1.4" : "0.5", // Default weights
+          weight: item.product_id?.toLowerCase().includes('book') ? "1.4" : "0.5", // Default weights
           weight_unit: "lb"
         })),
         placed_at: new Date().toISOString(),

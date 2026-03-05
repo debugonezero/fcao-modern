@@ -54,6 +54,7 @@ export async function POST(request: Request) {
       metadata[`item_${index + 1}_name`] = item.name || 'Item';
       metadata[`item_${index + 1}_qty`] = (item.quantity || 1).toString();
       metadata[`item_${index + 1}_sku`] = (item.productId || 'N/A').toString();
+      metadata[`item_${index + 1}_price`] = (item.price || 0).toString(); // Add price in cents
     });
 
     // Add Shipping as a line item if provided
@@ -121,10 +122,6 @@ export async function POST(request: Request) {
       },
       automatic_tax: { enabled: true },
       customer_creation: 'always',
-      customer_update: {
-        address: 'auto',
-        shipping: 'auto',
-      },
       billing_address_collection: 'required',
     };
 

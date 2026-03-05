@@ -49,11 +49,11 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-card flex flex-col items-center justify-center text-center !p-12 border-t-4 border-t-brand-gold min-h-[200px]"
+            className="glass-card flex flex-col items-center justify-center text-center !p-12 border-t-4 border-t-brand-blue min-h-[200px]"
           >
             <Link 
               href="/statement-of-faith"
-              className="px-10 py-4 bg-brand-gold/10 hover:bg-brand-gold text-brand-gold hover:text-white rounded-full font-bold transition-all duration-300 border border-brand-gold/20 text-lg"
+              className="px-10 py-4 bg-brand-blue/10 hover:bg-brand-blue text-brand-blue hover:text-white rounded-full font-bold transition-all duration-300 border border-brand-blue/20 text-lg"
             >
               Statement of Faith
             </Link>

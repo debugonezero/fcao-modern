@@ -47,16 +47,21 @@ export const createShippoOrder = async (orderData: Order) => {
           street1: "123 Main St", // User to update if different, but using GLENDALE as requested
           zip: "91205"
         },
-        line_items: orderData.items.map((item: OrderItem) => ({
+        line_items: orderData.items.map((item: any) => ({
           quantity: item.quantity,
           sku: item.product_id,
           title: item.product_name,
           unit_price: (item.unit_price / 100).toString(),
           total_price: ((item.unit_price * item.quantity) / 100).toFixed(2),
           currency: "USD",
-          weight: item.product_id?.toLowerCase().includes('book') ? "1.4" : "0.5", // Default weights
+          weight: item.product_id?.toLowerCase().includes('book') ? "1.4" : "0.5",
           weight_unit: "lb"
         })),
+        weight: orderData.items.reduce((acc: number, item: any) => {
+          const w = item.product_id?.toLowerCase().includes('book') ? 1.4 : 0.5;
+          return acc + (w * item.quantity);
+        }, 0).toString(),
+        weight_unit: "lb",
         placed_at: new Date().toISOString(),
         order_number: orderData.id,
         order_status: "PAID",

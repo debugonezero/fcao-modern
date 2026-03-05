@@ -46,7 +46,7 @@ export default function Contact() {
           Get In <span className="text-brand-gold relative inline-block">Touch<div className="absolute -bottom-1 left-0 w-full h-1 bg-brand-gold/30 rounded-full"/></span>
         </h1>
         <p className="text-neutral-600 max-w-2xl mx-auto">
-          We would love to hear from you. Whether you have questions about our existing projects or simply want to connect, please reach out.
+          We would love to hear from you. Whether you have questions about our existing or upcoming projects or simply want to connect, please reach out.
         </p>
       </motion.div>
 
@@ -108,7 +108,7 @@ export default function Contact() {
             <div className="hidden lg:block glass-card p-6 overflow-hidden relative group">
               <h4 className="font-bold text-neutral-900 mb-2 italic">Looking for the Store?</h4>
               <p className="text-sm text-neutral-600 mb-4">
-                All proceeds from our books and artwork directly support the FCAO mission.
+                All net proceeds from the sale of our books and portrait reproductions directly support the FCAO mission.
               </p>
               <Link 
                 href="/store" 

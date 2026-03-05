@@ -25,8 +25,8 @@ export const Navbar = () => {
             <Image 
               src="/images/First-Christians-logo-header.png" 
               alt="FCAO Logo" 
-              width={180} height={61} 
-              className="w-auto h-10 md:h-12 lg:h-14 object-contain"
+              width={320} height={109} 
+              className="w-auto h-12 md:h-16 lg:h-20 object-contain"
               priority
             />
           </Link>

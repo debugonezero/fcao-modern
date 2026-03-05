@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
+import { createShippoOrder } from '@/lib/shippo';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-02-24.acacia' as any,
@@ -36,8 +37,49 @@ export async function POST(req: Request) {
 
     console.log(`Processing successful checkout for session: ${session.id}`);
 
-    // Skip Database and Shippo for now (Vercel uses Stripe as source of truth via Live Proxy)
-    // We can add a cloud DB like Supabase later if persistent records outside Stripe are needed.
+    // 1. Sync to Shippo
+    try {
+      const address = (session as any).shipping_details?.address || session.customer_details?.address;
+      
+      const orderData = {
+        id: session.id,
+        customer_email: customerEmail || '',
+        customer_name: session.customer_details?.name || 'Guest',
+        shipping_address: {
+          line1: address?.line1 || '',
+          line2: address?.line2 || '',
+          city: address?.city || '',
+          state: address?.state || '',
+          postal_code: address?.postal_code || '',
+          country: address?.country || 'US'
+        },
+        items: [], // Line items should ideally be fetched or passed via metadata
+        total_amount: session.amount_total || 0,
+        shipping_cost: session.shipping_cost?.amount_total || 0,
+        shipping_method: 'Standard',
+        status: 'paid',
+        created_at: new Date()
+      };
+
+      // Extract items from metadata if we saved them (api/checkout/route.ts saves them)
+      const metadata = session.metadata || {};
+      const items: any[] = [];
+      let i = 1;
+      while (metadata[`item_${i}_name`]) {
+        items.push({
+          product_id: metadata[`item_${i}_sku`] || `item_${i}`,
+          product_name: metadata[`item_${i}_name`],
+          quantity: parseInt(metadata[`item_${i}_qty`] || '1'),
+          unit_price: 0 // units are often bundled or specific prices not in metadata
+        });
+        i++;
+      }
+      (orderData as any).items = items;
+
+      await createShippoOrder(orderData as any);
+    } catch (shippoErr) {
+      console.error("Shippo sync failed:", shippoErr);
+    }
 
     // 2. Send Emails
     try {

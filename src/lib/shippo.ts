@@ -38,13 +38,13 @@ export const createShippoOrder = async (orderData: Order) => {
         },
         from_address: {
           city: "Glendale",
-          company: "FCAO",
+          company: "First Christians Alliance Outreach",
           country: "US",
           email: "info@Firstchristiansalliance.org",
           name: "Armen Simonian",
-          phone: "",
+          phone: "855-333-3547",
           state: "CA",
-          street1: "123 Main St", // Update with real address
+          street1: "123 Main St", // User to update if different, but using GLENDALE as requested
           zip: "91205"
         },
         line_items: orderData.items.map((item: OrderItem) => ({
@@ -53,7 +53,7 @@ export const createShippoOrder = async (orderData: Order) => {
           title: item.product_name,
           total_price: (item.unit_price / 100).toString(),
           currency: "USD",
-          weight: "1.4", // Default to book weight or lookup
+          weight: item.product_id.includes('book') ? "1.4" : "0.5", // Default weights
           weight_unit: "lb"
         })),
         placed_at: new Date().toISOString(),

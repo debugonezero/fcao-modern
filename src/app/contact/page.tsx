@@ -75,10 +75,10 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-neutral-900 mb-1">Email Us</h4>
                 <a 
-                  href="mailto:info@Firstchristiansalliance.org" 
+                  href="mailto:info@Firstchristiansallianceoutreach.org" 
                   className="text-base text-neutral-900 font-bold hover:text-brand-gold transition-colors break-all"
                 >
-                  info@Firstchristiansalliance.org
+                  info@Firstchristiansallianceoutreach.org
                 </a>
               </div>
             </div>

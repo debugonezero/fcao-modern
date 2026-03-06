@@ -24,6 +24,7 @@ export interface Product {
   image: string;
   shortDescription: string;
   longDescription: string;
+  appraisalInfo?: string;
   authors?: string[];
   stripePriceId: string | null;
   variations: Variation[] | null;

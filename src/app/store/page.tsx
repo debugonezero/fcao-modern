@@ -118,6 +118,11 @@ export default function Shop() {
                       <p className="transition-all">
                         {product.longDescription}
                       </p>
+                      {product.appraisalInfo && (
+                        <p className="mt-6 font-bold text-brand-blue tracking-wider text-xs">
+                          {product.appraisalInfo}
+                        </p>
+                      )}
                     </div>
                   </div>
                   

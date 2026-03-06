@@ -123,7 +123,7 @@ export default function Shop() {
                   
                   {hasVariations && (
                     <div className="mb-6 flex flex-col items-start">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-neutral-400 mb-3">Select Size</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-brand-dark/50 mb-3">Select Size</label>
                       <div className="flex flex-wrap justify-start gap-2">
                         {product.variations!.map((variation: any, vIndex: number) => (
                           <button
@@ -132,7 +132,7 @@ export default function Shop() {
                             className={`px-5 py-2 rounded-full border transition-all text-[10px] font-bold tracking-widest uppercase ${
                               selectedVariationIndex === vIndex 
                                 ? "border-brand-gold bg-brand-gold text-white shadow-lg shadow-brand-gold/20" 
-                                : "border-neutral-200 text-neutral-500 hover:border-brand-gold/50"
+                                : "border-neutral-200 text-brand-dark/60 hover:border-brand-gold/50"
                             }`}
                           >
                             {variation.name}
@@ -142,38 +142,6 @@ export default function Shop() {
                     </div>
                   )}
 
-                  {/* Shipping Specs */}
-                  <div className="mb-8 p-3 bg-neutral-50 rounded-xl border border-neutral-100 w-full">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-bold text-neutral-400">
-                        <span>Packaged Weight</span>
-                        <span className="text-neutral-600">
-                          {hasVariations 
-                            ? product.variations![selectedVariationIndex].shipping.weight + " + " + product.variations![selectedVariationIndex].shipping.packagingWeight
-                            : product.shipping!.weight + " + " + product.shipping!.packagingWeight
-                          }
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-bold text-neutral-400">
-                        <span>Dimensions</span>
-                        <span className="text-neutral-600">
-                          {hasVariations 
-                            ? product.variations![selectedVariationIndex].shipping.dimensions
-                            : product.shipping!.dimensions
-                          } in
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-bold text-neutral-400">
-                        <span>Packaging</span>
-                        <span className="text-neutral-600">
-                          {hasVariations 
-                            ? product.variations![selectedVariationIndex].shipping.packaging
-                            : product.shipping!.packaging
-                          }
-                        </span>
-                      </div>
-                    </div>
-                  </div>
 
                   <div className="mb-6 flex flex-col items-center">
                     <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">Qty</label>

@@ -11,8 +11,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    if (!process.env.RESEND_API_KEY) {
-      console.warn("Resend API key missing. Email simulated.");
+    const resendKey = process.env.RESEND_API_KEY;
+    if (!resendKey || resendKey.includes('re_xxx') || resendKey === 'YOUR_RESEND_API_KEY') {
+      console.warn("Resend API key missing or placeholder. Email simulated.");
+      // Return success but note it's a simulation
       return NextResponse.json({ success: true, simulated: true });
     }
 

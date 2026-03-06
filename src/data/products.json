@@ -36,7 +36,7 @@
     "variations": [
       {
         "id": "v1",
-        "name": "20\" w x 10\" h Canvas Print",
+        "name": "20” w x 10” h Canvas Print",
         "price": "$120.00",
         "stripePriceId": "NEXT_PUBLIC_STRIPE_POSTER_STANDARD_PRICE_ID",
         "shipping": {
@@ -48,7 +48,7 @@
       },
       {
         "id": "v2",
-        "name": "40\" w x 20\" h Canvas Print",
+        "name": "40” w x 20” h Canvas Print",
         "price": "$250.00",
         "stripePriceId": "NEXT_PUBLIC_STRIPE_POSTER_LARGE_PRICE_ID",
         "shipping": {

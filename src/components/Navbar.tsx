@@ -56,7 +56,7 @@ export const Navbar = () => {
 
         {/* Right: Actions */}
         <div className="flex-1 flex items-center justify-end gap-3 md:gap-6">
-          <Link href="/cart" className="p-2 text-neutral-600 hover:text-brand-gold transition-colors relative">
+          <Link href="/cart" className="p-2 text-brand-dark/60 hover:text-brand-gold transition-colors relative">
             <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
             <span className="absolute -top-1 -right-1 bg-brand-gold text-white text-[10px] md:text-xs w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center font-bold">
               {totalItems}

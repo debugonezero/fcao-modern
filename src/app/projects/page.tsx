@@ -138,7 +138,7 @@ export default function Projects() {
             <div className="glass-card !p-6">
               <h4 className="font-bold text-lg mb-2 text-brand-blue">Armenian Society of Los Angeles</h4>
               <p className="text-sm text-neutral-600 mb-4">Saturday, January 24, 2026<br/>3rd Floor Library Room 102<br/>117 South Louise St., Glendale 91205<br/>From 2:00 – 5:00 PM</p>
-              <p className="text-xs text-brand-blue/80 font-medium">Watch the live-stream recording: <a href="https://www.youtube.com/watch?v=fNoCEyrlQMM" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-brand-blue">youtube.com/watch?v=fNoCEyrlQMM</a></p>
+              <p className="text-xs text-brand-blue/80 font-medium">Watch the recording: <a href="https://www.youtube.com/watch?v=fNoCEyrlQMM" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-brand-blue">youtube.com/watch?v=fNoCEyrlQMM</a></p>
             </div>
             <div className="glass-card !p-6">
               <h4 className="font-bold text-lg mb-2 text-brand-blue">Ararat/Eskijian Museum & Church</h4>

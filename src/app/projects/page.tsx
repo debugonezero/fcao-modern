@@ -138,10 +138,12 @@ export default function Projects() {
             <div className="glass-card !p-6">
               <h4 className="font-bold text-lg mb-2 text-brand-blue">Armenian Society of Los Angeles</h4>
               <p className="text-sm text-neutral-600 mb-4">Saturday, January 24, 2026<br/>3rd Floor Library Room 102<br/>117 South Louise St., Glendale 91205<br/>From 2:00 – 5:00 PM</p>
+              <p className="text-xs text-brand-blue/80 font-medium">Watch the live-stream recording: <a href="https://www.youtube.com/watch?v=fNoCEyrlQMM" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-brand-blue">youtube.com/watch?v=fNoCEyrlQMM</a></p>
             </div>
             <div className="glass-card !p-6">
               <h4 className="font-bold text-lg mb-2 text-brand-blue">Ararat/Eskijian Museum & Church</h4>
               <p className="text-sm text-neutral-600 mb-4">Sunday, January 25, 2026<br/>15105 Mission Hills Road, Mission Hills CA 91345<br/>From 4:00 – 6:00 PM</p>
+              <p className="text-xs text-brand-blue/80 font-medium">Watch the live-stream recording: <a href="https://www.youtube.com/@AraratEskijianMuseum" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-brand-blue">youtube.com/@AraratEskijianMuseum</a></p>
             </div>
           </div>
 
@@ -149,7 +151,7 @@ export default function Projects() {
             <div className="w-full">
               <h3 className="text-xl font-bold mb-4 text-neutral-900">Meet the Authors, Get Your Book Signed</h3>
               <p className="text-sm text-neutral-600 mb-6">
-                All five authors presented segments from the book. The presentation was live-streamed and made available a few days after the event on the Ararat-Eskijian Museum’s YouTube channel: <a href="https://www.youtube.com/@AraratEskijianMuseum" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline font-bold">youtube.com/@AraratEskijianMuseum</a>
+                All five authors presented segments from the book. This collaboration brings together scholars, environmentalists, and church leaders to testify to the miracles and struggles that shaped Armenian history.
               </p>
               <ul className="text-sm text-neutral-600 space-y-3">
                 <li><strong className="text-neutral-900">Christopher H. Zakian:</strong> Director of Communications for the Eastern Diocese of the Armenian Church of America</li>
